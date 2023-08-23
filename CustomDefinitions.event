@@ -40,5 +40,14 @@
 
 #include "EngineHacks/SkillSystem/skill_definitions.event"
 
+//Contro
+PUSH
+//Skip very beginning world map
+ORG $A39768
+EVBIT_MODIFY 0x1
+SKIPWN
+ENDA
+POP
+
 // #define __DEBUG__ // Uncomment to get the Debug startup menu :p
 

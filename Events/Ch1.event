@@ -1,0 +1,102 @@
+EventPointerTable(0x07, PointerList)
+
+PointerList:
+POIN TurnBasedEvents
+POIN CharacterBasedEvents
+POIN LocationBasedEvents
+POIN MiscBasedEvents
+POIN Dunno1 Dunno2 Dunno3 Tutorial
+POIN Traps1 Traps2
+POIN Units1 Units1  //This unit group determines the number and position of deployment slots when there is a prep screen
+POIN $0 $0 $0
+POIN $0 $0 $0
+POIN BeginningScene EndingScene
+
+TurnBasedEvents:
+END_MAIN
+
+#define GiveGold(money) "CALL $591F40; SVAL 0x3 money; GIVEITEMTOMAIN 0"
+
+// Prep screen shop (copied from runa)
+
+PUSH
+  ORG 0x99E64
+    POIN PrepScreenShop
+POP
+
+ALIGN 4
+PrepScreenShop:
+//SHLI IronSword IronLance IronAxe IronBow Fire Heal
+SHLI SlimSword SlimLance PoisonAxe IronBow Fire Heal
+ALIGN 4
+
+ALIGN 32
+CharacterBasedEvents:
+END_MAIN
+
+MiscBasedEvents:
+CauseGameOverIfLordDies
+AFEV 0x23 WinChap 0x22
+END_MAIN
+
+WinChap:
+ENUF 0x23
+ENUF 0x22
+CHECK_EVENTID 0xC
+BEQ 2 0x0 0xC
+CHECK_EVENTID 0xD
+BEQ 2 0x0 0xC
+CHECK_EVENTID 0xB
+CALL EndingScene
+LABEL 2
+ENDA
+
+LocationBasedEvents:		
+END_MAIN
+
+
+Dunno1:
+END_MAIN
+
+Dunno2:
+END_MAIN
+
+Dunno3:
+END_MAIN
+
+Tutorial:
+END_MAIN
+
+Units1:
+	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [5,6] 0 0 0 0 [Rapier,Vulnerary] NoAI
+	UNIT Seth Mage 0x0 Level(1,Ally,0) [5,7] 0 0 0 0 [Vulnerary] NoAI
+	UNIT Gilliam Soldier 0x0 Level(3,Ally,0) [4,4] 0 0 0 0 [IronLance, Vulnerary] NoAI
+	UNIT
+
+EnemyUnits:
+
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [5,5] 0 0 0 0 [IronAxe] DefaultAI
+	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [6,5] 0 0 0 0 [IronLance] DefaultAI
+	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [6,6] 0 0 0 0 [IronLance] DefaultAI
+	UNIT
+
+Traps1:
+ENDTRAP
+ALIGN 4
+
+Traps2:
+ENDTRAP
+ALIGN 4
+
+BeginningScene:
+LOAD1 0x1 Units1
+ENUN
+LOAD1 0x1 EnemyUnits
+ENUN
+ENDA
+
+EndingScene:
+GiveGold(1000)
+MNC2 1
+NoFade
+ENDA

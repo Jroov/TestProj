@@ -13,17 +13,17 @@
 AllyStarHitBonus:
 BYTE 5
 AllyStarAvoidBonus:
-BYTE 3
+BYTE 1
 
 EnemyStarHitBonus:
 BYTE 5
 EnemyStarAvoidBonus:
-BYTE 3
+BYTE 1
 
 NPCStarHitBonus:
 BYTE 5
 NPCStarAvoidBonus:
-BYTE 3
+BYTE 1
 
 CancelOutOpposingLeadership:
 BYTE 1 // change to 0 if you don't want this behaviour

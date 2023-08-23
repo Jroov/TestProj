@@ -54,10 +54,10 @@
 
     // Display growths hack
 
-    #ifdef PRESS_SELECT_TO_VIEW_GROWTHS
-      ORG $8888C
-        BYTE 0x82
-    #endif
+ //   #ifdef PRESS_SELECT_TO_VIEW_GROWTHS
+ //    ORG $8888C
+ //       BYTE 0x82
+ //  #endif
   
     ORG $88896
       SHORT 0x46C0

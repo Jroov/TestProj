@@ -1,17 +1,17 @@
 ## EirikaLike1ID
-piña coladas[X]
+[X]
 
 ## EirikaLike2ID * 
-getting caught in the rain[X]
+[X]
 
 ## EirikaDislike1ID
-health food[X]
+[X]
 
 ## EirikaDislike2ID
-yoga[X]
+[X]
 
 ## EirikaAgeID
-1337[X]
+[X]
 
 ## EirikaHeightID
-420cm[X]
+[X]
