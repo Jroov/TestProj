@@ -1,5 +1,5 @@
 
-#define GaidenList(character,pointer) "PUSH ; ORG SpellListTable + character * 4 ; POIN pointer ; POP"
+#define GaidenList(character,pointer) "PUSH ; ORG SpellListTable + character * 4 ; POIN pointer ; POP"	
 
 ALIGN 4
 SpellListTable: // Allocate space for the spell list pointer table.
@@ -17,9 +17,9 @@ AdvisorSpellList:
 	BYTE 0 0
 	
 ALIGN 4
-EirikaSpellList:
-	BYTE 1 Fire
+HealerSpellList:
+	BYTE 1 Heal
 	BYTE 0 0
 	
 GaidenList(Seth,AdvisorSpellList) // This macro writes this entry to the spell list table.
-GaidenList(Eirika,EirikaSpellList)
+GaidenList(Moulder,HealerSpellList)

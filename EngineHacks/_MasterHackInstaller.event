@@ -222,6 +222,9 @@ POP
   #include "Necessary/GrowthGetters/GrowthGetters.event"
   
   ALIGN 4
+  #include "New/NewInstaller.event"
+  
+  ALIGN 4
   #include "Necessary/IconRework/IconRework.event"   // Allows using standard Icon routines to draw skill icons
   #include "Necessary/PopupRework/PopupRework.event" // Allows to expand on vanilla popups by adding components
   

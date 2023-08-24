@@ -1,0 +1,15 @@
+//WT Editor
+#include "WTEditor.event"
+
+// Pik 1RN (modified to only apply <= 50% hit by bpat)
+#include "1RNUnder50/Installer.event"
+
+// bpat avoidhack
+PUSH
+ORG $2ABE8
+jumpToHack(AvoidLabel)
+POP
+
+ALIGN 4
+AvoidLabel:
+#incbin "NewAvo/avoidhack.dmp"
