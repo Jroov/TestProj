@@ -80,6 +80,7 @@ EnemyUnits:
 	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [5,5] 0 0 0 0 [IronAxe] DefaultAI
 	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [6,5] 0 0 0 0 [IronLance] DefaultAI
 	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [6,6] 0 0 0 0 [IronLance] DefaultAI
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [7,7] 0 0 0 0 [IronSword] DefaultAI
 	UNIT
 
 Traps1:
