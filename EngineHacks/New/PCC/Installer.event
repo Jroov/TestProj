@@ -1,0 +1,12 @@
+
+ALIGN 4
+#include "PCC.lyn.event"
+
+ALIGN 4
+PCCTable:
+#include "PCCTable.event"
+
+#define SetUnitPCC(unit, pcc) "PUSH; ORG PCCTable + unit; BYTE pcc; POP"
+
+// replace Proc_Start in proc loop with New_Proc_Start
+//SetUnitPCC(Eirika, 2)

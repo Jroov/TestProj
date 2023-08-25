@@ -70,7 +70,7 @@ Aura,6
 Luce (DUMMY),8
 Flux,2
 Luna,3
-Nosferatu,4
+Nosferatu,5
 Eclipse,8
 Fenrir,6
 Gleipnir,8
@@ -79,12 +79,12 @@ Mend,4
 Recover,6
 Physic,6
 Fortify,10
-Restore,6
+Restore,4
 Silence,7
 Sleep,8
 Berserk,9
-Warp,8
-Rescue,6
+Warp,18
+Rescue,10
 Torch,3
 Hammerne,12
 Unlock,4

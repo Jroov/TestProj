@@ -4,6 +4,23 @@
 // Pik 1RN (modified to only apply <= 50% hit by bpat)
 #include "1RNUnder50/Installer.event"
 
+//7743 force battle off when dance & staff
+#include "ForceBattleOffWithDanceAndStaff/Install.event"
+
+//Pik & Loog PCC
+#include "PCC/Installer.event"
+
+// Gamma weight calc
+//Moving the weight calc to MSG; makes this save raw AS.
+
+PUSH
+ORG $2AB78
+SHORT $2016 $5620 $1C21 $315E $8008
+B($2ABA4)
+SHORT $46C0
+POP
+PROTECT $2AB78 $2AB88
+
 // bpat avoidhack
 PUSH
 ORG $2ABE8

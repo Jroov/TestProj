@@ -19,6 +19,14 @@ AdvisorSpellList:
 ALIGN 4
 HealerSpellList:
 	BYTE 1 Heal
+	BYTE 5 Nosferatu
+	BYTE 0 0
+	
+ALIGN 4
+VillagerSpellList:
+	BYTE 1 Fire
+	BYTE 4 Thunder
+	//BYTE 12 Sagittae
 	BYTE 0 0
 	
 GaidenList(Seth,AdvisorSpellList) // This macro writes this entry to the spell list table.

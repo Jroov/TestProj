@@ -26,7 +26,6 @@ bne End
 mov 	r2, sp
 ldrh 	r0, [r2]
 add 	r0, r0, #MaxRangeBonus
-sub 	r0, r0, #0x10
 
 @prevent the maximum range from going over 15
 cmp 	r0, #0xF
@@ -34,6 +33,10 @@ bls NotOverMax
 mov 	r0, #0xF
 NotOverMax:
 strh 	r0, [r2]
+
+ldrh    r0, [r2, #0x2]
+sub     r0, #0x1
+strh    r0, [r2, #0x2]
 
 End:
 ldr 	r0, [sp]

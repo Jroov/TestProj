@@ -8,7 +8,7 @@
 // =========================
 
 // If commented, the test map will not be installed.
-#define USE_TEST_MAP
+//#define USE_TEST_MAP
 
 // The amount of attack speed needed to double an opponent.
 #define AS_DOUBLING_THRESHOLD 4
@@ -37,7 +37,7 @@
 #define BATTLE_STATS
 
 //If uncommented, will enable Casual Mode (set by flag 0xB0).
-#define CASUAL_MODE
+//#define CASUAL_MODE
 
 //If uncommented, will enable Contemporary Talk & Support.
 #define CONTEMPORARY_TALK_SUPPORT
@@ -130,7 +130,7 @@
 
 // If uncommented, Escape-Arrive will be implemented.
 // /this adds entries to the Unit Menu and normally conflicts with Lunge and Stairs. Install here to avoid the conflicts.
-// #define ESCAPE_ARRIVE
+ #define ESCAPE_ARRIVE
 
 // If uncommented, Leadership Stars will be implemented.
 // Go to LeadershipStars/LeadershipStars.event to edit settings.
@@ -148,7 +148,7 @@
 
 //If uncommented, Cannot Crit will be implemented.
 //Makes weapon crit of 255 negate crits.
-#define CANNOT_CRIT
+ #define CANNOT_CRIT
 
 //If uncommented, AdvWeaponLocks will be implemented.
 //This is a rewrite of venno's array-based weapon locks.
@@ -203,7 +203,7 @@ MESSAGE Please see the README.md there or ask @Vesly for help.
 //#define INSTALL_AoE
 
 // If uncommented, Unlock staves will work on chests.
-// #define UNLOCK_WORKS_ON_CHESTS
+ #define UNLOCK_WORKS_ON_CHESTS
 
 // If uncommented, damage numbers will display over participants' heads during battle animations.
 // #define BATTLE_ANIMATION_NUMBERS
@@ -246,7 +246,7 @@ MESSAGE Please see the README.md there or ask @Vesly for help.
 // #define ENABLE_GBA_LETHALITY
 
 // if set to false, only the skill will work, if set to true both the skill and the ability will work
-#define ENABLE_LEGACY_CANTO False
+#define ENABLE_LEGACY_CANTO True
 
 // if commented, enemies with Steal+ will steal as normal in vanilla (ie, the skill will be pretty much useless
 #define ENABLE_AI_STEAL_PLUS
@@ -255,7 +255,7 @@ MESSAGE Please see the README.md there or ask @Vesly for help.
 #define ENABLE_STEAL_SKILL
 
 // If commented, debuffs are allowed to take stats below zero
-#define DEBUFFS_MIN_ZERO
+//#define DEBUFFS_MIN_ZERO
 
 // If true Shadowgift/Lumina will check for staff ranks when checking for highest magic rank
 #define SHADOWGIFT_VIA_STAFF_RANK False
@@ -268,7 +268,7 @@ MESSAGE Please see the README.md there or ask @Vesly for help.
 #define CAPTURE_SKILL_REQUIRED
 
 // If commented, Dragon Veins will be a global command and will not require the Dragon's Blood skill.
-#define DRAGON_VEIN_SKILL_REQUIRED
+//#define DRAGON_VEIN_SKILL_REQUIRED
 
 //If commented, Heroes Movement skills will use class checks and will not require their respective skills. Configure lists for each skill in 'SkillSystem/Skills/UnitMenuSkills/HeroesMovement/HeroesMovement.event', at the bottom of the file.
 #define HEROES_MOVEMENT_SKILL_REQUIRED
@@ -293,7 +293,7 @@ MESSAGE Please see the README.md there or ask @Vesly for help.
 
 //If uncommented, Combat Arts will be enabled.
 //This changes the behavior of most command skills and some proc skills such that they cost additional durability per hit and are selected from a submenu.
-// #define COMBAT_ARTS
+ #define COMBAT_ARTS
 
 //If true, Combat Arts will not be allowed to hit more than once.
 #define ARTS_HIT_ONCE True
@@ -354,10 +354,10 @@ MESSAGE Please see the README.md there or ask @Vesly for help.
 // ================================
 
 //If commented, growths will not be displayed by pressing Select.
-#define PRESS_SELECT_TO_VIEW_GROWTHS
+//#define PRESS_SELECT_TO_VIEW_GROWTHS
 
 //If true, the stat colors for player units will reflect their growth in the stat.
-#define USE_STAT_COLORS True
+#define USE_STAT_COLORS False
 
 //If true, Fixed Growths mode will exist.
 #define FIXED_GROWTHS_MODE False

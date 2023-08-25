@@ -13,6 +13,9 @@ Archer[X]
 # 0x0216
 Cleric[X]
 
+# 0x0217
+Pirate[X]
+
 # 0x0002 textWeaponRankIncreasedTo
  Weapon rank increased to [X]
 

@@ -6,11 +6,16 @@
 pSpeedModifiers: // Speed
 	POIN prAddUnitSpeed prHalveIfRescuing prHalveIfCapturing 
 	POIN prDebuffSpd 
+	POIN prSubtractWeaponWeight
 	POIN prAddEquipSpeed prItemPassiveSpeed prRallySpd prLifeAndDeathBonus prSkillFury prResolve prDefiantSpd prPushSpd
 	#ifdef DEBUFFS_MIN_ZERO
 	POIN prMinZero
 	#endif
 WORD 0
+
+//makes weight into gaiden weight, from bpat
+prSubtractWeaponWeight:
+    rSub(rForUnitEquipped(rCallExternal(prGetItemWeight)))
 
 prAddUnitSpeed:
 	rAdd(rSByteAt(UNIT_SPEED))
