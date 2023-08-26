@@ -8,6 +8,7 @@
 #endif
 PUSH
 
+    #define ExpandedLevelUpScreen
 	//Function that adds promo bonuses to char data
     ORG $2BDFA
 	SHORT 0
@@ -17,7 +18,8 @@ PUSH
 	//WRITES
 	ORG $7369A
 	#incbin "WritePromotoRAM.dmp"
-	SHORT 0xE012
+	SHORT 0x46C0
+	jumpToHack(WriteNewGrowthsToRAMAnimStruct)
 	
 	//LOADS
 	ORG $737D8
@@ -253,7 +255,7 @@ ALIGN 4
 New_Stats_Jump_Table:
 POIN 0x7EC44 0x7EC48 0x7EC64 0x7ED0C 0x7EC80 0x7EC9C 0x7ECB8 0x7ECD4 0x7ECF0
 #ifdef ExpandedLevelUpScreen
-	POIN 0x7ED28 0x7ED28
+	POIN GetConGrowthAnimsOff  GetMovGrowthAnimsOff 
 #endif
 
 ALIGN 4

@@ -27,5 +27,8 @@ prItemPassiveMag:
 	rPassiveStatBoostsNonStacking(0x09)
 #endif // DONT_STACK_BOOSTS
 
+prEquipmentMag:
+	rEquipmentBonus(0x09)
+
 
 #endif // MODULAR_GETTER_MAGIC_EVENT

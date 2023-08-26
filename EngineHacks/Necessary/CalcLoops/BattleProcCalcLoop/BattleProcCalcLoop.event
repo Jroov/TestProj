@@ -9,6 +9,7 @@ POIN Proc_Start
 
 POIN Proc_Devil	//devil effect
 
+POIN IncrementAttackCount
 
 
 #ifndef COMBAT_ARTS

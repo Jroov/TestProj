@@ -38,4 +38,7 @@ prItemPassivePow:
 	rPassiveStatBoostsNonStacking(STAT_POWER)
 #endif // DONT_STACK_BOOSTS
 
+prEquipmentStr:
+	rEquipmentBonus(STAT_POWER)
+
 #endif // MODULAR_GETTER_POWER_EVENT

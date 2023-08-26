@@ -26,4 +26,7 @@ prItemPassiveLuck:
 	rPassiveStatBoostsNonStacking(STAT_LUCK)
 #endif // DONT_STACK_BOOSTS
 
+prEquipmentLck:
+	rEquipmentBonus(STAT_LUCK)
+
 #endif // MODULAR_GETTER_LUCK_EVENT

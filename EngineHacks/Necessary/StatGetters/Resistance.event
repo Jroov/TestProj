@@ -34,4 +34,7 @@ prItemPassiveResistance:
 	rPassiveStatBoostsNonStacking(STAT_RESISTANCE)
 #endif // DONT_STACK_BOOSTS
 
+prEquipmentRes:
+	rEquipmentBonus(STAT_RESISTANCE)
+	
 #endif // MODULAR_GETTER_RESISTANCE_EVENT

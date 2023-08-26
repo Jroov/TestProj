@@ -57,3 +57,5 @@ extern u8 NihilIDLink;
 extern u32 PassiveSkillBit;
 
 extern SkillTestConfig gSkillTestConfig;
+
+extern int GetEquipmentSkill(Unit* unit);

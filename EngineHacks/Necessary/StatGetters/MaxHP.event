@@ -25,4 +25,7 @@ prItemPassiveHp:
 	rPassiveStatBoostsNonStacking(STAT_HP)
 #endif // DONT_STACK_BOOSTS
 
+prEquipmentMHP:
+	rEquipmentBonus(STAT_HP)
+
 #endif // MODULAR_GETTER_MAXHP_EVENT

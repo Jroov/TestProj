@@ -25,4 +25,8 @@ prItemPassiveSkl:
 	rPassiveStatBoostsNonStacking(STAT_SKILL)
 #endif // DONT_STACK_BOOSTS
 
+prEquipmentSkl:
+	rEquipmentBonus(STAT_SKILL)
+
+
 #endif // MODULAR_GETTER_SKILL_EVENT

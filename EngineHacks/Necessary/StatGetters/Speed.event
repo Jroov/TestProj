@@ -30,5 +30,8 @@ prItemPassiveSpeed:
 	rPassiveStatBoostsNonStacking(STAT_SPEED)
 #endif // DONT_STACK_BOOSTS
 
+prEquipmentSpeed:
+	rEquipmentBonus(STAT_SPEED)
+
 
 #endif // MODULAR_GETTER_SPEED_EVENT

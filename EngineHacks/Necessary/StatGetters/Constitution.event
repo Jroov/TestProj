@@ -1,6 +1,7 @@
 #ifndef MODULAR_GETTER_CONSITUTION_EVENT
 #define MODULAR_GETTER_CONSITUTION_EVENT
 
+
 #include "_Common.event"
 ALIGN 4
 pConModifiers: // Consitition
@@ -33,5 +34,8 @@ prItemPassiveCon:
 #else // DONT_STACK_BOOSTS
 	rPassiveStatBoostsNonStacking(STAT_CON)
 #endif // DONT_STACK_BOOSTS
+
+prEquipmentCon:
+	rEquipmentBonus(STAT_CON)
 
 #endif // MODULAR_GETTER_CONSITUTION_EVENT

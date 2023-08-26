@@ -57,4 +57,7 @@ prItemPassiveMov:
 	rPassiveStatBoostsNonStacking(STAT_MOV)
 #endif // DONT_STACK_BOOSTS
 
+prEquipmentMov:
+	rEquipmentBonus(STAT_MOV)
+	
 #endif // MODULAR_GETTER_MOVEMENT_EVENT

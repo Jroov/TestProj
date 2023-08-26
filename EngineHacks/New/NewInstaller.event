@@ -1,6 +1,9 @@
 //WT Editor
 #include "WTEditor.event"
 
+//Equips (Pik n Loog)
+#include "Equip/Installer.event"
+
 // Pik 1RN (modified to only apply <= 50% hit by bpat)
 #include "1RNUnder50/Installer.event"
 
@@ -9,6 +12,13 @@
 
 //Pik & Loog PCC
 #include "PCC/Installer.event"
+
+
+//Infinite Range Warp - 7743
+PUSH
+ORG $1E380
+SHORT $20F7 $0000
+POP
 
 // Gamma weight calc
 //Moving the weight calc to MSG; makes this save raw AS.
