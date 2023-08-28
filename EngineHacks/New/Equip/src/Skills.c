@@ -1,9 +1,9 @@
 int GetEquipmentSkill(Unit* unit){
 	Item item = GetUnitEquippedItem(unit);
 
-	if (item.number == 0){
+	if (GetItemIndex(item) == 0){
 		return 0;
 	}
 
-	return GetItemData(item.number)->skill;
+	return GetItemData(GetItemIndex(item))->skill;
 }

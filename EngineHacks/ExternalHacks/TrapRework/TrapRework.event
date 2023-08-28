@@ -42,6 +42,10 @@
 	#define ExampleMapSpriteTrapID 0x10
 	#define ExampleMapSpriteID 0x66
 	
+	#define BlueSigilTrapID 0x11
+	#define RedSigilTrapID 0x12
+	#define GreenSigilTrapID 0x13
+	
 	
 	#include "TrapRework_Internal.event"
 	
@@ -62,6 +66,9 @@
 	SetTrapEventInit(MineTrapID,$378D6)
 	SetTrapEventInit(GorgonEggTrapID,$378EC)
 	SetTrapEventInit(LightRuneTrapID,0)
+	SetTrapEventInit(BlueSigilTrapID,TrapRework_GenericInitializer)
+	SetTrapEventInit(RedSigilTrapID,TrapRework_GenericInitializer)
+	SetTrapEventInit(GreenSigilTrapID,TrapRework_GenericInitializer)
 	
 	
 	#define SetTrapMapSprite(trapID,mapSpriteID) "PUSH; ORG TrapMapSpriteTable+(trapID-1); BYTE mapSpriteID; POP"
@@ -90,6 +97,9 @@
 	#define SetTrapMapSpritePalette(trapID,paletteWord) "PUSH; ORG TrapMapSpritePaletteTable+(4*(trapID-1)); WORD paletteWord; POP"
 	
 	SetTrapMapSpritePalette(LightRuneTrapID,LightRuneTrapPaletteWord)
+	SetTrapMapSpritePalette(BlueSigilTrapID,PlayerTrapPaletteWord)
+	SetTrapMapSpritePalette(RedSigilTrapID,EnemyTrapPaletteWord)
+	SetTrapMapSpritePalette(GreenSigilTrapID,NPCTrapPaletteWord)
 	
 	
 
@@ -137,6 +147,10 @@
 
 	#include "Modules/DragonVeins/DragonVeins.event"
 	#include "Modules/HealTiles/HealTiles.event"
+	
+	#define BlueSigil(x,y) "MapSpriteTrap(BlueSigilTrapID,x,y)"
+	#define RedSigil(x,y) "MapSpriteTrap(RedSigilTrapID,x,y)"
+	#define GreenSigil(x,y) "MapSpriteTrap(GreenSigilTrapID,x,y)"
 	
 	//This is here to satiate a hardcoded requirement if heal tiles are not installed.
 	#ifndef HEAL_TILES

@@ -18,8 +18,7 @@ PUSH
 	//WRITES
 	ORG $7369A
 	#incbin "WritePromotoRAM.dmp"
-	SHORT 0x46C0
-	jumpToHack(WriteNewGrowthsToRAMAnimStruct)
+	SHORT 0xE012
 	
 	//LOADS
 	ORG $737D8
@@ -255,8 +254,9 @@ ALIGN 4
 New_Stats_Jump_Table:
 POIN 0x7EC44 0x7EC48 0x7EC64 0x7ED0C 0x7EC80 0x7EC9C 0x7ECB8 0x7ECD4 0x7ECF0
 #ifdef ExpandedLevelUpScreen
-	POIN GetConGrowthAnimsOff  GetMovGrowthAnimsOff 
+	POIN 0x7ED28 0x7ED28
 #endif
+
 
 ALIGN 4
 Promo_Stat_Name_Table:
