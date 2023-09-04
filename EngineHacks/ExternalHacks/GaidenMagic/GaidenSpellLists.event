@@ -14,6 +14,8 @@ FILL 4*0x100
 ALIGN 4
 AdvisorSpellList:
 	BYTE 1 Fire
+	BYTE 2 Heal
+
 	BYTE 0 0
 	
 ALIGN 4
@@ -21,7 +23,7 @@ HealerSpellList:
 	BYTE 1 Heal
 	BYTE 5 Mend
 	BYTE 10 Warp
-	BYTE 12 
+	//BYTE 12 
 	BYTE 0 0
 	
 ALIGN 4

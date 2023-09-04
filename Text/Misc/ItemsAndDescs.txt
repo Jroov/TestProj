@@ -3,4 +3,16 @@
 Broadsword[X]
 
 #0x40C
-A family heirloom.[X]
+A family heirloom. Prevents counters.[X]
+
+#0x3d9
+Leather Shield[X]
+
+#0x488
+Increases defense by 2.[X]
+
+#0x3dc
+Staff Ring[X]
+
+#0x3d8
+Advantage Ring[X]

@@ -1,1 +1,2 @@
 #include "Statscreen/StatscreenInstaller.event"
+#include "Portraits/PortraitInstaller.event"

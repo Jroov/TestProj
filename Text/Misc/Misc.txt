@@ -1,0 +1,8 @@
+## EquipEquipmentDescription
+Ready this equipment.[X]
+
+## UnequipName
+Unequip[X]
+
+## UnequipEquipmentDescription
+Remove this equipment.[X]

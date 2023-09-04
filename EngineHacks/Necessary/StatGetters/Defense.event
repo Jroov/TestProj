@@ -5,7 +5,7 @@
 
 pDefenseModifiers: // Defense
 	POIN prAddUnitDefense prHalveIfCapturing 
-	POIN prDebuffDef StrongCon
+	POIN prDebuffDef StrongCon prDefTonicBonus
 	POIN prAddEquipDefense prItemPassiveDefense prRallyDef prLifeAndDeathMinus VigorDanceCheck prSkillFury prFortressDefenseDef prDefiantDef prPushDef prEquipmentDef
 	#ifdef DEBUFFS_MIN_ZERO
 	POIN prMinZero
@@ -30,5 +30,8 @@ prItemPassiveDefense:
 
 prEquipmentDef:
 	rEquipmentBonus(STAT_DEFENSE)
+	
+prDefTonicBonus:
+	rTonicBonus(STAT_DEFENSE)
 
 #endif // MODULAR_GETTER_DEFENSE_EVENT

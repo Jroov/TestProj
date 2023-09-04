@@ -195,7 +195,7 @@ CheckAlertStance:
 bl CheckNextStance
 cmp r0, #0x00
 beq CheckAlertStancePlus
-mov r1, #0x62
+mov r1, #0x60
 ldrh r0, [ r4, r1 ]
 add r0, #15 @ Add 15 avoid.
 strh r0, [ r4, r1 ]

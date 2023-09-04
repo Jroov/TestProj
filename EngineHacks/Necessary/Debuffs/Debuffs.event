@@ -310,7 +310,11 @@ WORD DebuffTableRam
 
 ALIGN 4 
 DebuffTableSize_Link: 
-WORD DebuffTableSize 
+WORD DebuffTableSize
+
+ALIGN 4 
+DebuffAndTonicsTableSize_Link: 
+WORD DebuffTableSize+TonicTableSize
 
 
 

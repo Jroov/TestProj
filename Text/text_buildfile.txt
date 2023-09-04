@@ -1,3 +1,4 @@
+
 #include "Misc/NamesAndDescs.txt"
 
 #include "Misc/ItemsAndDescs.txt"
@@ -17,20 +18,29 @@ Learned  [X]
 
 #include "statscreen_text.txt"
 
+#include "ChapterText/ChapterTextInstaller.txt"
 
+## TonicUseBoxText
+Stat increased.[X]
+
+#include "Tonics.txt"
 
 #0xd4c LikesText
 //first text ID in the free block
-Likes:[X]
+[X]
 
 #0xd4d DislikesText 
-*{Dislikes}:[X]
+[X]
 
 #0xd4e HeightText
-Height:[X]
+[X]
 
 #0xd4f AgeText
-Age:[X]
+[X]
+
+#include "Misc/Misc.txt"
+
+#include "Misc/fatigue_text.txt"
 
 ## HouseText
 //first text ID in the free block

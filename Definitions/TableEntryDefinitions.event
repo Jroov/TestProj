@@ -1,2 +1,38 @@
+//Items
+#define Broadsword 0x9
+#define LeatherShield 0x60
+#define AdvantageRing 0x5f
+#define StaffRing 0x63
+#define SightBand 0x5d
+
+
+
+
 //Classes
 #define Armor 0x9
+#define fVillager 0x70
+
+//Characters
+#define Medrick 0x1
+#define Rasmus 0x2
+#define Briscoe 0x3
+#define Halle 0x4
+#define Fran 0x5
+#define Kay 0x6
+#define Sarina 0x8
+#define Miruna 0x9
+#define Rylan 0xa
+
+//Mugs
+#define MedrickMug 0x2
+#define RasmusMug 0x3
+#define BriscoeMug 0x4
+#define HalleMug 0x5
+#define FranMug 0x6
+#define KayMug 0x7
+#define SarinaMug 0x9
+#define MirunaMug 0xa
+#define RylenMug 0xb
+
+//Standing Map Sprites
+#define SigilTrapMapSprite 0x71

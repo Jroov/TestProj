@@ -20,10 +20,10 @@ add     r1, #0x7B
 ldr     r1, [r1]
 lsl     r1, r1, #0x18
 asr     r1, r1, #0x18
-mul     r1, r0
+mov     r1, r0
 
 @go to skill check
-mov     r4, r1    @hold that WEXP value for me buddy
+mov     r4, #0x2    @hold that WEXP value for me buddy, used to be r1 
 ldr     r1, SkillPlus_ID
 ldr     r2, SkillTester
 mov     r0, r7

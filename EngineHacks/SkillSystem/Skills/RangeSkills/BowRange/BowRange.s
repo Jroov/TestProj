@@ -34,10 +34,6 @@ mov 	r0, #0xF
 NotOverMax:
 strh 	r0, [r2]
 
-ldrh    r0, [r2, #0x2]
-sub     r0, #0x1
-strh    r0, [r2, #0x2]
-
 End:
 ldr 	r0, [sp]
 add 	sp, #0x4

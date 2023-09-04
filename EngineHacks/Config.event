@@ -46,7 +46,7 @@
 #define DANGER_ZONE
 
 //If uncommented, will enable Display Weapon Rank on Level Up.
-#define WRANK_ON_LEVELUP
+//#define WRANK_ON_LEVELUP
 
 //If uncommented, will use Trap Rework.
 //This is automatically used if Dragon Veins or Heal Tiles are uncommented.
@@ -134,7 +134,7 @@
 
 // If uncommented, Leadership Stars will be implemented.
 // Go to LeadershipStars/LeadershipStars.event to edit settings.
-// #define LEADERSHIP_STARS
+ #define LEADERSHIP_STARS
 
 // If uncommented, Biorhythm will be implemented.
 // Go to "Biorhythm/Biorhythm.event" to edit settings.
@@ -246,9 +246,9 @@ MESSAGE Please see the README.md there or ask @Vesly for help.
 // #define ENABLE_GBA_LETHALITY
 
 // if set to false, only the skill will work, if set to true both the skill and the ability will work
-#define ENABLE_LEGACY_CANTO True
+#define ENABLE_LEGACY_CANTO False
 
-// if commented, enemies with Steal+ will steal as normal in vanilla (ie, the skill will be pretty much useless
+// if commented, enemies with Steal+ will steal as normal in vanilla (ie, the skill will be pretty much useless)
 #define ENABLE_AI_STEAL_PLUS
 
 // if commented, Steal will no longer be a skill, but a character ability, and Steal+ will require having regular steal

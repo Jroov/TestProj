@@ -12,6 +12,8 @@
 
 #include "Necessary/UnitMenu/_UnitMenuDefs.event"
 
+//Pik
+#include "New/Tonic/Tonics.event"
 ////////////////////////////////SUPPORTING CHANGES
 
 PUSH
@@ -118,6 +120,8 @@ POP
   #include "ExternalHacks/Raid/Raid.event"
   
   //Escape-Arrive
+  #define rTonicBonus(stat) "rAdd; rWithConstant(stat); rCallExternal(AddTonicBonus^1)"
+
   #include "ExternalHacks/EscapeArrive/EscapeArrive.event"
   
   //Debuffs

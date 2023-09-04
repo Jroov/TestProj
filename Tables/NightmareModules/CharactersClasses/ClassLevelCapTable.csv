@@ -4,28 +4,28 @@ INLINE Class_Level_Cap_Table,Level Cap
 0x02 Eirika Lord,20
 0x03 Ephraim Great Lord,20
 0x04 Eirika Great Lord,20
-0x05 Cavalier,20
-0x06 Cavalier (F),20
+0x05 Cavalier,15
+0x06 Cavalier (F),15
 0x07 Paladin,20
 0x08 Paladin (F),20
-0x09 Armour Knight,20
-0x0A Armour Knight (F),20
+0x09 Armour Knight,15
+0x0A Armour Knight (F),15
 0x0B General,20
 0x0C General (F),20
 0x0D Thief,20
 0x0E Manakete,20
-0x0F Mercenary,20
-0x10 Mercenary (F),20
+0x0F Mercenary,15
+0x10 Mercenary (F),15
 0x11 Hero,20
 0x12 Hero (F),20
-0x13 Myrmidon,20
-0x14 Myrmidon (F),20
+0x13 Myrmidon,15
+0x14 Myrmidon (F),15
 0x15 Swordmaster,20
 0x16 Swordmaster (F),20
 0x17 Assassin,20
 0x18 Assassin (F),20
-0x19 Archer,20
-0x1A Archer (F),20
+0x19 Archer,15
+0x1A Archer (F),15
 0x1B Sniper,20
 0x1C Sniper (F),20
 0x1D Ranger,20

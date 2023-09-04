@@ -122,11 +122,11 @@
   
   #else // USE_STRMAG_SPLIT
   
-  #ifdef LEADERSHIP_STARS
+  //#ifdef LEADERSHIP_STARS
 	#include "pages/strmag/mss_page1_skills_leadership.lyn.event"
-  #else // LEADERSHIP_STARS
-	#include "pages/strmag/mss_page1_skills.lyn.event"
-  #endif // LEADERSHIP_STARS  
+  //#else // LEADERSHIP_STARS
+	//#include "pages/strmag/mss_page1_skills.lyn.event"
+  //#endif // LEADERSHIP_STARS  
   
   #endif // USE_STRMAG_SPLIT
   

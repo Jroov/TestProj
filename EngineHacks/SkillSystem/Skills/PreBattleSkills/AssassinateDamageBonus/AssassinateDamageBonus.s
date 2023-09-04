@@ -7,10 +7,10 @@ mov r4, r0 @atkr
 mov r5, r1 @dfdr
 
 @check range
-ldr r0,=#0x203A4D4 @battle stats
-ldrb r0,[r0,#2] @range
-cmp r0,#1
-bne End
+@ldr r0,=#0x203A4D4 @battle stats
+@ldrb r0,[r0,#2] @range
+@cmp r0,#1
+@bne End
 
 @make sure we are in combat (or combat prep)
 ldrb	r3, =gBattleData
@@ -28,10 +28,10 @@ cmp r0, #0
 beq End
 
 @add 2 damage
-mov r1, #0x5a
-ldrh r0, [r4, r1] @atk
-add r0, #2
-strh r0, [r4,r1]
+@mov r1, #0x5a
+@ldrh r0, [r4, r1] @atk
+@add r0, #2
+@strh r0, [r4,r1]
 
 End:
 pop {r4-r7}

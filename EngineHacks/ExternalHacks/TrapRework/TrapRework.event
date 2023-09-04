@@ -87,6 +87,8 @@
 	SetTrapMapSprite(MineTrapID,0)
 	SetTrapMapSprite(GorgonEggTrapID,0)
 	SetTrapMapSprite(LightRuneTrapID,0x66) //light rune map sprite
+	SetTrapMapSprite(BlueSigilTrapID,SigilTrapMapSprite)
+
 	
 	//Macro for setting unique cases on trap map sprites
 	#define SetTrapMapSpriteFunc(trapID,ptr) "PUSH; ORG (TrapMapSpriteFuncTable+((trapID-1)*4)); POIN ptr; POP"
@@ -150,7 +152,7 @@
 	
 	#define BlueSigil(x,y) "MapSpriteTrap(BlueSigilTrapID,x,y)"
 	#define RedSigil(x,y) "MapSpriteTrap(RedSigilTrapID,x,y)"
-	#define GreenSigil(x,y) "MapSpriteTrap(GreenSigilTrapID,x,y)"
+	#define GreenSigil(x,y) "MapSpriteTrap(GreenSexigilTrapID,x,y)"
 	
 	//This is here to satiate a hardcoded requirement if heal tiles are not installed.
 	#ifndef HEAL_TILES

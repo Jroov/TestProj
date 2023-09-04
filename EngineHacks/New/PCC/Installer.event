@@ -9,4 +9,7 @@ PCCTable:
 #define SetUnitPCC(unit, pcc) "PUSH; ORG PCCTable + unit; BYTE pcc; POP"
 
 // replace Proc_Start in proc loop with New_Proc_Start
-//SetUnitPCC(Eirika, 2)
+SetUnitPCC(Medrick, 2)
+SetUnitPCC(Halle, 1)
+SetUnitPCC(Rasmus, 2)
+SetUnitPCC(Briscoe, 1)

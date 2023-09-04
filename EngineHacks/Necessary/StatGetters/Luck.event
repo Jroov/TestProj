@@ -5,8 +5,8 @@
 
 pLuckModifiers: // Luck
 	POIN prAddUnitLuck prHalveIfCapturing 
-	POIN prDebuffLuk 
-	POIN prAddEquipLuck prItemPassiveLuck prRallyLuk prDefiantLck
+	POIN prDebuffLuk prLckTonicBonus
+	POIN prAddEquipLuck prItemPassiveLuck prRallyLuk prDefiantLck prEquipmentLck 
 	#ifdef DEBUFFS_MIN_ZERO
 	POIN prMinZero
 	#endif
@@ -28,5 +28,8 @@ prItemPassiveLuck:
 
 prEquipmentLck:
 	rEquipmentBonus(STAT_LUCK)
+	
+prLckTonicBonus:
+	rTonicBonus(STAT_LUCK)
 
 #endif // MODULAR_GETTER_LUCK_EVENT

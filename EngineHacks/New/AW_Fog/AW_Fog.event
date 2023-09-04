@@ -1,0 +1,28 @@
+
+#include "AW_Fog.lyn.event"
+#include "AW_Fog_hook.lyn.event"
+
+PUSH
+	ORG $19FEC
+	jumpToHack(ObscuredTerrainFogHook)
+POP
+
+ALIGN 4
+HighGroundTerrains:
+BYTE 0x11 //mountain
+BYTE 0x12 //peak
+BYTE 0x22 //roof
+BYTE 0x40 //mast
+BYTE 0xFF //terminator
+
+ALIGN 4
+ObscuredTerrains:
+//BYTE 0x0C //forest
+BYTE 0x0D //thicket
+BYTE 0x1D //pillar
+BYTE 0x22 //roof
+//BYTE 0x2B //shipwreck
+BYTE 0x3B //dark
+BYTE 0xFF //terminator
+
+ALIGN 4

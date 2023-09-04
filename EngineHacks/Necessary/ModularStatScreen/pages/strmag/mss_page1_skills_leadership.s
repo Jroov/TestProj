@@ -87,6 +87,16 @@ ldr		r0,[sp,#0xC]
 ldr		r0,[r0]			@hp growth getter (not displaying because there's no room atm)
 draw_growth_at 18, 17
 draw_textID_at 13, 17, textID=0x4E9, growth_func=1 @hp name
+
+ldr r0, =FatigueSSTextID @ draws fatigue differently with growths page
+ldrh r0, [r0]
+draw_textID_at 21, 13 @ ftg
+
+ldr r0, =MSSFatigueGetter
+mov r14,r0
+.short 0xF800 
+draw_number_at 25, 13
+
 b		NextColumn
 .ltorg
 
@@ -143,6 +153,15 @@ draw_def_bar_at 16, 13
 draw_res_bar_at 16, 15
 draw_textID_at 13, 17, 0x4f6 @move
 draw_move_bar_with_getter_at 16, 17
+
+ldr r0, =FatigueSSTextID 
+ldrh r0, [r0]
+draw_textID_at 25, 13 @ ftg
+
+ldr r0, =MSSFatigueGetter
+mov r14,r0
+.short 0xF800 
+draw_number_at 28, 13
 
 b		NextColumn
 .ltorg

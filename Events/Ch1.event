@@ -16,6 +16,7 @@ TurnBasedEvents:
 END_MAIN
 
 #define GiveGold(money) "CALL $591F40; SVAL 0x3 money; GIVEITEMTOMAIN 0"
+#define GiveItem(item, charID) "CALL $591F40; SMOV 0x3 item; GIVEITEMTO charID"
 
 // Prep screen shop (copied from runa)
 
@@ -51,9 +52,62 @@ CALL EndingScene
 LABEL 2
 ENDA
 
-LocationBasedEvents:		
+LocationBasedEvents:
+Escape(33,8)
+Village(0x8,VillageEventRecruit,18,4)
+House(0x9,VillageEventEquips1,12,15)
+Village(0xA,VillageEventEquips2,20,8)		
 END_MAIN
 
+VillageEventRecruit:
+LOAD1 0x1 VillageUnit
+ENDA
+
+VillageEventEquips1:
+CHECK_ACTIVE
+SVAL 1 Medrick
+BNE 3 1 0xC
+Text(Text_Ch1_Medrick_Village)
+GiveItem(AdvantageRing, 0xFFFF)
+GOTO 9
+LABEL 3
+SVAL 1 Briscoe
+BNE 4 1 0xC
+Text(Text_Ch1_Briscoe_Village)
+GiveItem(AdvantageRing, 0xFFFF)
+GOTO 9
+LABEL 4
+SVAL 1 Rasmus
+BNE 5 1 0xC
+Text(Text_Ch1_Rasmus_Village)
+GiveItem(IronSword, 0xFFFF)
+GOTO 9
+LABEL 5
+SVAL 1 Fran
+BNE 6 1 0xC
+Text(Text_Ch1_Fran_Village)
+GiveItem(StaffRing, 0xFFFF)
+GOTO 9
+LABEL 6
+SVAL 1 Halle
+BNE 7 1 0xC
+Text(Text_Ch1_Halle_Village)
+GiveItem(IronSword, 0xFFFF)
+GOTO 9
+LABEL 7
+SVAL 1 Rylan
+BNE 8 1 0xC
+Text(Text_Ch1_Rylan_Village)
+GiveItem(SteelSword, 0xFFFF)
+LABEL 8
+LABEL 9
+NoFade
+ENDA
+
+VillageEventEquips2:
+GiveItem(SightBand, 0xFFFF)
+NoFade
+ENDA
 
 Dunno1:
 END_MAIN
@@ -67,23 +121,42 @@ END_MAIN
 Tutorial:
 END_MAIN
 
+VillageUnit:
+	UNIT Sarina fVillager 0x0 Level(1,Ally,0) [18,5] 0 0 0 0 [] NoAI
+	UNIT
+
 Units1:
-	UNIT Eirika EirikaLord 0x0 Level(1,Ally,0) [5,6] 0 0 0 0 [Rapier,Vulnerary] NoAI
-	UNIT Seth Mage 0x0 Level(1,Ally,0) [5,7] 0 0 0 0 [Vulnerary] NoAI
-	UNIT Gilliam Soldier 0x0 Level(3,Ally,0) [4,4] 0 0 0 0 [IronLance, Vulnerary] NoAI
-	UNIT Franz Archer 0x0 Level(1,Ally,0) [6,7] 0 0 0 0 [IronBow, SteelBow, Vulnerary] NoAI
-	UNIT Moulder Cleric 0x0 Level(5,Ally,0) [6,8] 0 0 0 0 [Vulnerary] NoAI
+	UNIT Medrick EirikaLord 0x0 Level(1,Ally,0) [8,12] 0 0 0 0 [Rapier,Vulnerary] NoAI
+	UNIT Rasmus	 Mage 0x0 Level(1,Ally,0) [6,11] 0 0 0 0 [Vulnerary] NoAI
+	UNIT Briscoe Soldier 0x0 Level(3,Ally,0) [7,12] 0 0 0 0 [IronLance, LeatherShield, Vulnerary] NoAI
+	UNIT Halle Archer 0x0 Level(1,Ally,0) [7,11] 0 0 0 0 [IronBow, Vulnerary] NoAI
+	UNIT Fran Cleric 0x0 Level(1,Ally,0) [6,12] 0 0 0 0 [Vulnerary] NoAI
+	UNIT Rylan Armor 0x0 Level(1,Ally,0) [7,13] 0 0 0 0 [IronLance,IronSword] NoAI
 	UNIT
 
 EnemyUnits:
 
-	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [5,5] 0 0 0 0 [IronAxe] DefaultAI
-	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [6,5] 0 0 0 0 [IronLance] DefaultAI
-	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [6,6] 0 0 0 0 [IronLance] DefaultAI
-	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [7,7] 0 0 0 0 [IronSword] DefaultAI
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [11,12] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [9,15] 0 0 0 0 [IronSword] AttackInRangeAI
+	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [13,16] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [14,9] 0 0 0 0 [IronSword] AttackInRangeAI
+	UNIT 0x80 Cavalier  0x0 Level(1,Enemy,1) [18,23] 0 0 0 0 [IronLance] DefaultAI
+	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [26,2] 0 0 0 0 [IronLance] DefaultAI
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [19,9] 0 0 0 0 [IronSword] AttackInRangeAI
+	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [25,11] 0 0 0 0 [Javelin] AttackInRangeAI
+	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [25,12] 0 0 0 0 [Javelin] AttackInRangeAI
+	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [21,13] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [18,15] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [26,9] 0 0 0 0 [IronAxe] AttackInRangeAI
+	UNIT 0x80 Archer  0x0 Level(1,Enemy,1) [22,17] 0 0 0 0 [IronBow] AttackInRangeAI
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [25,15] 0 0 0 0 [IronSword] AttackInRangeAI
+	UNIT 0x68 Soldier  0x0 Level(3,Enemy,1) [32,12] 0 0 0 0 [IronLance] AttackInRangeAI
+	UNIT 0x80 Archer  0x0 Level(1,Enemy,1) [29,6] 0 0 0 0 [IronBow] AttackInRangeAI
+
 	UNIT
 
 Traps1:
+BlueSigil(33,8)
 ENDTRAP
 ALIGN 4
 
@@ -92,6 +165,16 @@ ENDTRAP
 ALIGN 4
 
 BeginningScene:
+REMOVEPORTRAITS
+SetBackground(0x1)
+Text(Text_Ch1_Start_Briscoe_Rasmus)
+CALL $9EE2C4
+FADI 16
+REMOVEPORTRAITS
+SetBackground(0x1)
+Text(Text_Ch1_Start_Briscoe_Medrick)
+CALL $9EE2C4
+FADI 16
 LOAD1 0x1 Units1
 ENUN
 LOAD1 0x1 EnemyUnits

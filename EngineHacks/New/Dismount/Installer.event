@@ -1,0 +1,95 @@
+
+MESSAGE Dismount starts at currentOffset
+ALIGN 4
+#include "Dismount.lyn.event"
+MESSAGE Dismount ends at currentOffset
+
+#define MountedUnmounted(classIDMounted, classIDUnmounted) "BYTE classIDMounted classIDUnmounted"
+#define EndMountUnmountedTable "BYTE 0x00 0x00"
+
+#define MountSingleUnit(unit) "SVAL s1 unit; ASMC MountSingleUnitASMC"
+#define DismountSingleUnit(unit) "SVAL s1 unit; ASMC DismountSingleUnitASMC"
+
+#define DismountAll "ASMC DismountAllASMC"
+#define MountAll "ASMC MountAllASMC"
+
+#define DismountAfter12Preps "ASMC DismountAllUnitsInCh12IndoorStartingPosition"
+
+ALIGN 4
+MountedClassTable:
+//MountedUnmounted(MasterKnight, MasterKnight_Dismounted)
+EndMountUnmountedTable
+
+#define rIfUnitIsDismounted(dismountType)            "rWithConstant(dismountType); rIf(MSG_prCheckDismountedType)"
+#define rIfUnitIsDismounted(dismountType, arNext)    "rIfUnitIsDismounted(dismountType); arNext"
+
+#define LordDismountType 0
+#define HorseDismountType 1
+#define PegasusDismountType 2
+#define DragonDismountType 3
+
+#define DISMOUNT_CHECKER DismountTester
+
+ALIGN 4
+MSG_prCheckDismountedType: // Wraps SkillTester for MSG
+	rCallExternal(DismountTester^1)
+
+ALIGN 4
+prDismountedLordStrDebuff:
+rIfUnitIsDismounted(LordDismountType)
+		rSubConst(1)
+
+ALIGN 4
+prDismountedLordDefDebuff:
+rIfUnitIsDismounted(LordDismountType)
+		rSubConst(1)
+
+ALIGN 4
+prDismountedLordSpdDebuff:
+rIfUnitIsDismounted(LordDismountType)
+		rSubConst(1)
+
+ALIGN 4
+prDismountedHorseDefDebuff:
+	rIfUnitIsDismounted(HorseDismountType)
+		rSubConst(1)
+ALIGN 4
+prDismountedPegDefDebuff:
+	rIfUnitIsDismounted(PegasusDismountType)
+		rSubConst(2)
+ALIGN 4
+prDismountedDragonDefDebuff:
+	rIfUnitIsDismounted(DragonDismountType)
+		rSubConst(1)
+ALIGN 4
+prDismountedHorseSpdDebuff:
+	rIfUnitIsDismounted(HorseDismountType)
+		rSubConst(1)
+ALIGN 4
+prDismountedPegSpdDebuff:
+	rIfUnitIsDismounted(PegasusDismountType)
+		rSubConst(1)
+ALIGN 4
+prDismountedDragonSpdDebuff:
+	rIfUnitIsDismounted(DragonDismountType)
+		rSubConst(2)
+ALIGN 4
+prDismountedHorseStrDebuff:
+	rIfUnitIsDismounted(HorseDismountType)
+		rSubConst(2)
+ALIGN 4
+prDismountedPegStrDebuff:
+	rIfUnitIsDismounted(PegasusDismountType)
+		rSubConst(1)
+ALIGN 4
+prDismountedDragonStrDebuff:
+	rIfUnitIsDismounted(DragonDismountType)
+		rSubConst(1)
+
+#define UnacceptedMountDismountLocationEntry(chapterID, TopLeftX, TopLeftY, BottomRightX, BottomRightY) "BYTE chapterID TopLeftX TopLeftY BottomRightX BottomRightY"
+#define EndUnacceptedMountDismountLocationTable "BYTE 0xFF 0xFF 0xFF 0xFF 0xFF"
+
+ALIGN 4
+UnacceptedMountDismountLocationEntryTable:
+//UnacceptedMountDismountLocationEntry(Chapter1,0,0,19,19)
+EndUnacceptedMountDismountLocationTable
