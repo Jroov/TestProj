@@ -3,7 +3,7 @@
 
 
 ALIGN 16
-RasmusMugData: // LL
+RasmusMugData:
 #incbin "Dmp/Rasmus_mug.dmp"
 #incbin "Dmp/Rasmus_frames.dmp"
 #incbin "Dmp/Rasmus_palette.dmp"
