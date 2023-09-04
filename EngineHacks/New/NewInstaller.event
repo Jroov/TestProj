@@ -60,6 +60,7 @@ POP
 
 //Gamma remove --/--
     //Don't draw uses for unbreakables
+    PUSH
     ORG $16A60
     //BL($A3B8)
     SHORT $1C01 $4640
@@ -78,6 +79,7 @@ POP
     
     ORG $169FC
     B($16A06)
+    POP
 	
 	
 // Gamma weight calc
