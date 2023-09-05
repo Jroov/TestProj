@@ -61,7 +61,7 @@ POP
 //Gamma remove --/--
     //Don't draw uses for unbreakables
     PUSH
-    ORG $16A60
+   ORG $16A60
     //BL($A3B8)
     SHORT $1C01 $4640
     BL($4004) //Text_DrawString

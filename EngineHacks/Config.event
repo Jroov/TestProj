@@ -46,7 +46,7 @@
 #define DANGER_ZONE
 
 //If uncommented, will enable Display Weapon Rank on Level Up.
-//#define WRANK_ON_LEVELUP
+#define WRANK_ON_LEVELUP
 
 //If uncommented, will use Trap Rework.
 //This is automatically used if Dragon Veins or Heal Tiles are uncommented.

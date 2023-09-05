@@ -103,7 +103,7 @@ gSaveBlockTypeSizeLookup:
 #include "SrcModules/SaveUnitExpandedStrmagStairsFatigue.lyn.event" //Fatigue EMS
 
 DebuffTablePointer: // required for debuffs module
-	WORD DebuffTable
+	WORD DebuffTableRam
 
 // ===============
 // = SAVE CHUNKS =

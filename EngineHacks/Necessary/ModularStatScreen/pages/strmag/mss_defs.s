@@ -750,8 +750,6 @@
   lsl     r2, r2, #0x6
   mov     r1, r4
   blh     BgMap_ApplyTsa
-  ldr r0, [r6, #0xC]
-  blh DrawUnitEquippedItem
   ldr     r0, =#0x8205A24     @map of text labels and positions
   blh     DrawStatscreenTextMap
   ldr     r6, =StatScreenStruct
@@ -813,6 +811,7 @@
   lsl     r2, r2, #0x6
   blh     BgMap_ApplyTsa
 
+  
   cmp     r5, #0x0
   bne     SS_DoneEquipHighlightBar
   
@@ -928,9 +927,7 @@
   cmp     r4, #0x7
   ble     loc_0x8087660
   
-b SkipPool
-.ltorg
-SkipPool:
+.endm
 
 .macro draw_items_text showBallista=0
   push    {r7}
@@ -989,6 +986,8 @@ SkipPool:
   
   GorgonEggSkip_ItemList:
   b       SS_FinishItemsList
+  
+  .ltorg
   
   SS_LoopItemsList:
   ldr     r2, [r7, #0xC]
@@ -1348,18 +1347,16 @@ SkipPool:
   mov     r0, #0
   sub     r0, #1
   DrawHP:
-  mov     r4, #0x89
-  lsl     r4, #3
-  add     r4, r8
+  mov     r2, r0
+  ldr     r0, =(0x20*2*\tile_y)+(2*\tile_x)
+  add     r0, r8
   @ldr     r0, [r7, #0xC]    @unit pointer
   @blh     CurHPGetter
-  mov     r2, r0
-  mov     r0, r4
   mov     r1, #2
   blh     DrawDecNumber
 .endm
 
-.macro draw_max_hp
+.macro draw_max_hp, tile_x, tile_y
   ldr     r0, [r7, #0xC]    @unit pointer
   blh     MaxHPGetter
   cmp     r0, #100
@@ -1367,9 +1364,9 @@ SkipPool:
   mov     r0, #0
   sub     r0, #1
   DrawMaxHP:
-  ldr     r4, =#0x20230F6 @somewhere in bg0 buffer
   mov     r2, r0
-  mov     r0, r4
+  ldr     r0, =(0x20*2*\tile_y)+(2*\tile_x)
+  add     r0, r8
   mov     r1, #2
   blh     DrawDecNumber
   DrawMaxHP_End:
