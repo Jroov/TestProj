@@ -6,6 +6,9 @@
 //WT Editor
 #include "WTEditor.event"
 
+//Vesly PromoteCommand
+#include "PromoteCommand/Installer.event"
+
 //Equips (Pik n Loog)
 #include "Equip/Installer.event"
 
@@ -17,6 +20,12 @@
 
 //Pik & Loog PCC
 #include "PCC/Installer.event"
+
+//Sme CharBasedPromo
+#include "CharBasedPromos/CharBasedPromos.event"
+
+//idk? GetBlueUnitCountASMC
+#include "GetBlueUnitCountASMC.lyn.event"
 
 //Pik & Loog Dismount
 #include "Dismount/Installer.event"

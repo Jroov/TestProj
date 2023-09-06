@@ -32,12 +32,13 @@ POP
 
 ALIGN 4
 FatigueExemptCharList:
-BYTE Medrick
+//BYTE Medrick
 //BYTE Loewe //Should be Cetri
 BYTE 0
 
 ALIGN 4
 FatigueStartingChapter:
+BYTE 0x07 //Should be Ch7
 BYTE 0
 
 ALIGN 4

@@ -134,7 +134,7 @@ draw_talk_text_at 21, 11
   ldr r0, =ss_skillloc
   add r0, pc
   ldr r0, [r0]
-draw_textID_at 23, 13, colour=White @skills
+@draw_textID_at 23, 13, colour=White @skills
 mov r0, r8
 mov 	r1,#0x47
 ldrb	r0,[r0,r1]
@@ -207,12 +207,12 @@ SkillEnd:
 @ draw_move_bar_at 16, 15
 
 ldr r0, SS_FatigueText
-draw_textID_at 21, 9 @Fatigue label text
+draw_textID_at 23, 13 @Fatigue label text
 
 ldr r0,MSSFatigueGetter
 mov r14,r0
 .short 0xF800 @returns # in r0
-draw_number_at 25, 9
+draw_number_at 27, 13
 
 
 @blh DrawBWLNumbers

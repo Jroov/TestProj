@@ -22,12 +22,10 @@ MESSAGE CharBasedPromos
 ALIGN 4
 CharBasedPromoList:
 CharBasedPromoEntry(Medrick,EirikaLord,EirikaMasterLord)
-CharBasedPromoEntry(Ephraim,EphraimLord,EphraimMasterLord)
+//CharBasedPromoEntry(Ephraim,EphraimLord,EphraimMasterLord)
 CharBasedPromoEntry(Halle,Archer,Sniper)
 CharBasedPromoEntry(Briscoe,Soldier,General)
 CharBasedPromoEntry(Fran,Cleric,Bishop)
-//CharBasedPromoEntry(Villager,Cavalier,Mercenary,Mage)
-
 CharBasedPromoEnd
 
 

@@ -38,7 +38,18 @@ END_MAIN
 MiscBasedEvents:
 CauseGameOverIfLordDies
 AFEV 0x23 WinChap 0x22
+AFEV 0x0 CheckNoUnits 0x0
 END_MAIN
+
+ALIGN 4
+CheckNoUnits:
+ASMC GetBlueUnitCountASMC
+BNE 1 s0 sC
+ENUT 0x03
+CALL EndingScene
+LABEL 1
+NoFade
+ENDA
 
 WinChap:
 ENUF 0x23
@@ -53,7 +64,7 @@ LABEL 2
 ENDA
 
 LocationBasedEvents:
-Escape(33,8)
+Escape(0xE,Escape,33,8)
 Village(0x8,VillageEventRecruit,18,4)
 House(0x9,VillageEventEquips1,12,15)
 Village(0xA,VillageEventEquips2,20,8)		
@@ -165,6 +176,8 @@ ENDTRAP
 ALIGN 4
 
 BeginningScene:
+ENUT 0x129 // AllUnitsMustEscapeFlag
+ASMC ClearAllDebuffs
 REMOVEPORTRAITS
 SetBackground(0x1)
 Text(Text_Ch1_Start_Briscoe_Rasmus)
@@ -182,7 +195,11 @@ ENUN
 ENDA
 
 EndingScene:
-GiveGold(1000)
 MNC2 1
+NoFade
+ENDA
+
+Escape:
+ENUF 0xE
 NoFade
 ENDA

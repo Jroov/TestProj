@@ -136,7 +136,7 @@ draw_talk_text_at 21, 11
 
 ldr r0,=SkillsTextIDLink
 ldrh r0, [r0]
-draw_textID_at 21, 13, colour=White @skills
+@draw_textID_at 21, 13, colour=White @skills
 
 Nexty:
 
@@ -156,12 +156,12 @@ draw_move_bar_with_getter_at 16, 17
 
 ldr r0, =FatigueSSTextID 
 ldrh r0, [r0]
-draw_textID_at 25, 13 @ ftg
+draw_textID_at 21, 13 @ ftg
 
 ldr r0, =MSSFatigueGetter
 mov r14,r0
 .short 0xF800 
-draw_number_at 28, 13
+draw_number_at 26, 13
 
 b		NextColumn
 .ltorg
