@@ -1,3 +1,5 @@
 #include TableEntryDefinitions.event
 
+#include MacroDefs.event
+
 #define Tonic 0xCB // a durability based item 

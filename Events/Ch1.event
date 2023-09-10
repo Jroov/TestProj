@@ -13,10 +13,45 @@ POIN $0 $0 $0
 POIN BeginningScene EndingScene
 
 TurnBasedEvents:
+TurnEventPlayer(0,AIChange,4)
+TurnEventPlayer(0,Reinforcements1, 7)
+TurnEventPlayer(0,Reinforcements2,9)
+TurnEventEnemy(0,CetriGang,9)
 END_MAIN
+
+AIChange:
+SetAI(2,6,0x00,0x00)
+SetAI(2,15,0x00,0x00)
+ENDA
+
+
+Reinforcements1:
+EnemyReinforcements(Wave1)
+
+Reinforcements2:
+EnemyReinforcements(Wave2)
+
+Wave1:
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [0,10] 0 0 0 0 [SilverSword,LeatherShield] PWHAI
+	UNIT 0x80 Archer  0x0 Level(1,Enemy,1) [0,11] 0 0 0 0 [SilverBow,LeatherShield] PWHAI
+	UNIT
+
+Wave2:
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [16,20] 0 0 0 0 [SilverAxe,LeatherShield] PWHAI
+	UNIT 0x80 Archer  0x0 Level(1,Enemy,1) [17,20] 0 0 0 0 [SilverBow,LeatherShield] PWHAI
+	UNIT
+
+CetriGang:
+EnemyReinforcements(Cetri)
+
+Cetri:
+	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [0,11] 0 0 0 0 [SilverLance,LeatherShield] PWHAI
+	UNIT
 
 #define GiveGold(money) "CALL $591F40; SVAL 0x3 money; GIVEITEMTOMAIN 0"
 #define GiveItem(item, charID) "CALL $591F40; SMOV 0x3 item; GIVEITEMTO charID"
+#define TextGiveItem(textID, item, charID) "Text(textID); GiveItem(item, charID)"
+#define GotoAndLabel(goto,label) "GOTO goto; LABEL label"
 
 // Prep screen shop (copied from runa)
 
@@ -64,10 +99,10 @@ LABEL 2
 ENDA
 
 LocationBasedEvents:
-Escape(0xE,Escape,33,8)
-Village(0x8,VillageEventRecruit,18,4)
-House(0x9,VillageEventEquips1,12,15)
-Village(0xA,VillageEventEquips2,20,8)		
+Escape(0xE,Escape,31,7)
+Village(0x9,VillageEventRecruit,18,7)
+House(0xA,VillageEventEquips1,10,8)
+Village(0xB,VillageEventEquips2,20,13)		
 END_MAIN
 
 VillageEventRecruit:
@@ -75,43 +110,38 @@ LOAD1 0x1 VillageUnit
 ENDA
 
 VillageEventEquips1:
-CHECK_ACTIVE
+CHECK_ACTIVE //saved in sC
 SVAL 1 Medrick
 BNE 3 1 0xC
-Text(Text_Ch1_Medrick_Village)
-GiveItem(AdvantageRing, 0xFFFF)
+TextGiveItem(Text_Ch1_Medrick_Village, AdvantageRing, 0xFFFF)
 GOTO 9
 LABEL 3
 SVAL 1 Briscoe
 BNE 4 1 0xC
-Text(Text_Ch1_Briscoe_Village)
-GiveItem(AdvantageRing, 0xFFFF)
+TextGiveItem(Text_Ch1_Briscoe_Village, AdvantageRing, 0xFFFF)
 GOTO 9
 LABEL 4
 SVAL 1 Rasmus
 BNE 5 1 0xC
-Text(Text_Ch1_Rasmus_Village)
-GiveItem(IronSword, 0xFFFF)
+TextGiveItem(Text_Ch1_Rasmus_Village, PowerRing, 0xFFFF)
 GOTO 9
 LABEL 5
 SVAL 1 Fran
 BNE 6 1 0xC
-Text(Text_Ch1_Fran_Village)
-GiveItem(StaffRing, 0xFFFF)
+TextGiveItem(Text_Ch1_Fran_Village, StaffRing, 0xFFFF)
 GOTO 9
 LABEL 6
 SVAL 1 Halle
 BNE 7 1 0xC
-Text(Text_Ch1_Halle_Village)
-GiveItem(IronSword, 0xFFFF)
+TextGiveItem(Text_Ch1_Halle_Village, StaffRing, 0xFFFF)
 GOTO 9
 LABEL 7
 SVAL 1 Rylan
 BNE 8 1 0xC
-Text(Text_Ch1_Rylan_Village)
-GiveItem(SteelSword, 0xFFFF)
+TextGiveItem(Text_Ch1_Rylan_Village, PowerRing, 0xFFFF)
 LABEL 8
 LABEL 9
+//TILECHANGE 0x01
 NoFade
 ENDA
 
@@ -137,37 +167,42 @@ VillageUnit:
 	UNIT
 
 Units1:
-	UNIT Medrick EirikaLord 0x0 Level(1,Ally,0) [8,12] 0 0 0 0 [Rapier,Vulnerary] NoAI
-	UNIT Rasmus	 Mage 0x0 Level(1,Ally,0) [6,11] 0 0 0 0 [Vulnerary] NoAI
+	UNIT Medrick EirikaLord 0x0 Level(1,Ally,0) [7,10] 0 0 0 0 [Rapier,ReaverPrf,Vulnerary] NoAI
+	UNIT Rasmus	 Mage 0x0 Level(1,Ally,0) [6,10] 0 0 0 0 [Vulnerary] NoAI
 	UNIT Briscoe Soldier 0x0 Level(3,Ally,0) [7,12] 0 0 0 0 [IronLance, LeatherShield, Vulnerary] NoAI
-	UNIT Halle Archer 0x0 Level(1,Ally,0) [7,11] 0 0 0 0 [IronBow, Vulnerary] NoAI
+	UNIT Halle Archer 0x0 Level(1,Ally,0) [6,11] 0 0 0 0 [IronBow, Vulnerary] NoAI
 	UNIT Fran Cleric 0x0 Level(1,Ally,0) [6,12] 0 0 0 0 [Vulnerary] NoAI
-	UNIT Rylan Armor 0x0 Level(1,Ally,0) [7,13] 0 0 0 0 [IronLance,IronSword] NoAI
+	UNIT Rylan Armor 0x0 Level(1,Ally,0) [7,11] 0 0 0 0 [IronLance,IronSword] NoAI
 	UNIT
 
 EnemyUnits:
-
-	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [11,12] 0 0 0 0 [IronAxe] AttackInRangeAI
-	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [9,15] 0 0 0 0 [IronSword] AttackInRangeAI
-	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [13,16] 0 0 0 0 [IronLance] AttackInRangeAI
-	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [14,9] 0 0 0 0 [IronSword] AttackInRangeAI
-	UNIT 0x80 Cavalier  0x0 Level(1,Enemy,1) [18,23] 0 0 0 0 [IronLance] DefaultAI
-	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [26,2] 0 0 0 0 [IronLance] DefaultAI
-	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [19,9] 0 0 0 0 [IronSword] AttackInRangeAI
-	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [25,11] 0 0 0 0 [Javelin] AttackInRangeAI
-	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [25,12] 0 0 0 0 [Javelin] AttackInRangeAI
-	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [21,13] 0 0 0 0 [IronLance] AttackInRangeAI
-	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [18,15] 0 0 0 0 [IronAxe] AttackInRangeAI
-	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [26,9] 0 0 0 0 [IronAxe] AttackInRangeAI
-	UNIT 0x80 Archer  0x0 Level(1,Enemy,1) [22,17] 0 0 0 0 [IronBow] AttackInRangeAI
-	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [25,15] 0 0 0 0 [IronSword] AttackInRangeAI
-	UNIT 0x68 Soldier  0x0 Level(3,Enemy,1) [32,12] 0 0 0 0 [IronLance] AttackInRangeAI
-	UNIT 0x80 Archer  0x0 Level(1,Enemy,1) [29,6] 0 0 0 0 [IronBow] AttackInRangeAI
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [10,11] 0 0 0 0 [IronAxe] PWHAI
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [11,12] 0 0 0 0 [IronSword] AIRAI //[0x00,0x12,0x04,0x00] //Charge after 1 turn
+	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [11,10] 0 0 0 0 [IronLance] AIRAI
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [11,16] 0 0 0 0 [IronSword] PWHAI
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [16,8] 0 0 0 0 [IronAxe] PWHAI
+	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [17,5] 0 0 0 0 [IronLance] PWHAI
+	UNIT 0x80 Archer  0x0 Level(1,Enemy,1) [18,13] 0 0 0 0 [IronBow] AIRAI
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [23,10] 0 0 0 0 [IronAxe] AIRAIg2 //Group2
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [23,11] 0 0 0 0 [IronAxe] AIRAIg2 //Group2
+	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [22,9] 0 0 0 0 [IronLance] AIRAIg1 //Group1
+	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [22,12] 0 0 0 0 [IronLance] AIRAIg1 //Group1
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [2,6] 0 0 0 0 [IronSword] AIRAI //Charge on turn 4
+	UNIT 0x80 Archer  0x0 Level(1,Enemy,1) [2,15] 0 0 0 0 [IronBow] AIRAI //Charge on turn 4
+	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [16,19] 0 0 0 0 [Javelin] NMAI
+	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [17,19] 0 0 0 0 [Javelin] NMAI
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [16,17] 0 0 0 0 [IronSword] AIRAI
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [20,10] 0 0 0 0 [IronSword] AIRAI
+	UNIT 0x68 Mercenary 0x0 Level(3,Enemy,0) [31,8] 0 0 0 0 [IronSword] AIRAI //boss
+	UNIT 0x80 Archer  0x0 Level(1,Enemy,1) [27,6] 0 0 0 0 [IronBow] AIRAI
+	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [32,13] 0 0 0 0 [IronLance] AIRAI
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [26,11] 0 0 0 0 [IronSword] AIRAI
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [26,10] 0 0 0 0 [IronAxe] AIRAI
 
 	UNIT
 
 Traps1:
-BlueSigil(33,8)
+BlueSigil(31,7)
 ENDTRAP
 ALIGN 4
 

@@ -55,8 +55,8 @@ Longbow,0
 Ballista,0
 Iron Ballista,0
 Killer Ballista,0
-Fire,2
-Thunder,3
+Fire,1
+Thunder,5
 Elfire,4
 Bolting,8
 Fimbulvetr,6
@@ -74,7 +74,7 @@ Nosferatu,5
 Eclipse,8
 Fenrir,6
 Gleipnir,8
-Heal,2
+Heal,1
 Mend,4
 Recover,6
 Physic,6

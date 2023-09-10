@@ -1,0 +1,33 @@
+// AI macros (getting rid of heal AI)
+#define AttackingBrigandAI [AttackInRange,BrigandMove,NoRecovery,DefaultAI4]
+#define NonAttackingBrigandAI [NoAI1,BrigandMove,NoRecovery,DefaultAI4]
+#define AIRAI [AttackInRange,NoAI2,NoRecovery,DefaultAI4]
+#define PWHAI [AttackInRange,Pursue,NoRecovery,DefaultAI4]
+#define NMAI [AttackInPlace,NoAI2,NoRecovery,GuardTile]
+
+#define AIRAIg1 [AttackInRange,NoAI2,NoRecovery,0x01]
+#define PWHAIg1 [AttackInRange,Pursue,NoRecovery,0x01]
+#define NMAIg1 [AttackInPlace,NoAI2,NoRecovery,0x21]
+
+#define AIRAIg2 [AttackInRange,NoAI2,NoRecovery,0x02]
+#define PWHAIg2 [AttackInRange,Pursue,NoRecovery,0x02]
+#define NMAIg2 [AttackInPlace,NoAI2,NoRecovery,0x22]
+
+#define AIRAIg3 [AttackInRange,NoAI2,NoRecovery,0x03]
+#define AIRAIg4 [AttackInRange,NoAI2,NoRecovery,0x04]
+#define AIRAIg5 [AttackInRange,NoAI2,NoRecovery,0x05]
+#define AIRAIg6 [AttackInRange,NoAI2,NoRecovery,0x06]
+#define AIRAIg7 [AttackInRange,NoAI2,NoRecovery,0x07]
+#define AIRAIg8 [AttackInRange,NoAI2,NoRecovery,0x08]
+#define AIRAIg9 [AttackInRange,NoAI2,NoRecovery,0x09]
+
+#define SetAI(unitid,ai1,ai2,ai3,ai4) "SVAL 0x1 ai1|(ai2<<8)|(ai3<<16)|(ai4<<24); CHAI unitid"
+#define SetAI(x,y,ai1,ai2,ai3,ai4) "SVAL 0x1 ai1|(ai2<<8)|(ai3<<16)|(ai4<<24); CHAI [x,y]"
+#define SetAI(unitid,ai1,ai2)"SVAL 0x1 ai1|(ai2<<8); CHAI unitid"
+#define SetAI(x,y,ai1,ai2) "SVAL 0x1 ai1|(ai2<<8); CHAI [x,y]"
+
+#define EnemyReinforcements(unitPtr) "SMOV 0x2 (unitPtr|0x8000000); CALL $9EE274; EVBIT_T 0x7; ENDA"
+#define ReinforcementEventENDA(unitPtr) "SMOV 0x2 (unitPtr|0x8000000); CALL $9EE274; EVBIT_T 0x7; ENDA"
+#define EnemyReinforcementsNoENDA(unitPtr) "SMOV 0x2 (unitPtr|0x8000000); CALL $9EE274; EVBIT_T 0x7"
+#define ReinforcementEventNoENDA(unitPtr) "SMOV 0x2 (unitPtr|0x8000000); CALL $9EE274; EVBIT_T 0x7"
+#define LoadEnemies(unitPtr) "LOAD1 0x1 unitPtr; ENUN"

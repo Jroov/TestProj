@@ -123,10 +123,10 @@ int GetUnitEffectiveLevel(Unit* unit){
 	int effectiveLevel = unit->level;
 
 	if (unit->pClassData->attributes & CA_PROMOTED){
-		effectiveLevel += 20;
+		effectiveLevel += 5;
 	}
 	int i = 0;
-	while( PrepromoteTable[i].charID != 0xFF){
+	while(PrepromoteTable[i].charID != 0xFF){
 		if(unit->pCharacterData->number == PrepromoteTable[i].charID){
 			effectiveLevel -= PrepromoteTable[i].levelsToDecreaseBy;
 			break;
@@ -166,7 +166,8 @@ int GetBattleUnitStaffExp(BattleUnit* actor){
 	//	return 5;
 	//}
 
-	const ItemData* staffData = GetItemData(actor->weapon.number);
+	//const ItemData* staffData = GetItemData(actor->weapon.number);
+	const ItemData* staffData = GetItemData(GetItemIndex(actor->weapon));
 	int staffRank = staffData->weaponRank;
 	if( staffRank == 1 ){ // e rank
 		return 15;
@@ -197,9 +198,9 @@ int GetBattleUnitUpdatedWeaponExp(BattleUnit* battleUnit) {
     if (battleUnit->unit.curHP == 0){
 		return -1;
 	}
-    if (gChapterData.chapterStateBits & CHAPTER_FLAG_7){
-        return -1;
-	}
+    //if (gChapterData.chapterStateBits & CHAPTER_FLAG_7){
+    //    return -1;
+	//}
     if (gGameState.statebits & 0x40){ // TODO: GAME STATE BITS CONSTANTS
  		return -1;
 	} 
@@ -256,24 +257,24 @@ void ApplyUnitPromotion(struct Unit* unit, u8 classId) {
 	//only two places to promo; on map or in preps
 	int i;
 	bool isMountPromoAllowed = false;
-	if(gChapterData.chapterStateBits & CHAPTER_FLAG_PREPSCREEN){ //are we in preps?
-		i = 0;
-		int mountInPrepsChapter = 0;
-		
-		while( mountInPrepsChapter != 0xFF){
-			mountInPrepsChapter = MountedInPrepsTable[i];
-			if(gChapterData.chapterIndex == mountInPrepsChapter){
-				isMountPromoAllowed = true;
-				break;
-			}
-			i++;
-		}
-	}
-	else{ // are we on map?
+	//if(gChapterData.chapterStateBits & CHAPTER_FLAG_PREPSCREEN){ //are we in preps?
+	//	i = 0;
+	//	int mountInPrepsChapter = 0;
+	//	
+	//	while( mountInPrepsChapter != 0xFF){
+	//		mountInPrepsChapter = MountedInPrepsTable[i];
+	//		if(gChapterData.chapterIndex == mountInPrepsChapter){
+	//			isMountPromoAllowed = true;
+	//			break;
+	//		}
+	//		i++;
+	//	}
+	//}
+	//else{ // are we on map?
 		if(CheckIfDismountLocationLegal(unit)){
 			isMountPromoAllowed = true;
 		}
-	}
+	//}
 	
 	const struct ClassData* promotedClass = 0;
 	if (classId == 0x3){ // master knight; need special cases for dismounted units who become mounted 

@@ -1,8 +1,14 @@
 #define rTonicBonus(stat) "rAdd; rWithConstant(stat); rCallExternal(AddTonicBonus^1)"
 
+//Vesly + Sentine GroupAI
+#include "GroupAI/Installer.event"
 
 //Sme/Loog/Pik Fatigue
 #include "Fatigue/Fatigue.event"
+
+//Loog/Pik BattleExp
+#include "BattleExp/Installer.event"
+
 //WT Editor
 #include "WTEditor.event"
 

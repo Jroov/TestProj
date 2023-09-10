@@ -144,7 +144,7 @@
 
 //If uncommented, Reaver Split will be implemented.
 //Makes weapon ability 2 reaver bit just triangle reversal and weapon ability 3 bit 0x80 triple triangle effect.
- #define REAVER_SPLIT
+#define REAVER_SPLIT
 
 //If uncommented, Cannot Crit will be implemented.
 //Makes weapon crit of 255 negate crits.

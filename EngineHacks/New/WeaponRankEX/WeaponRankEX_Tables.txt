@@ -5,8 +5,8 @@ WORD $08590b4f
 WORD $08590b5d
 
 lMaxRank:
-BYTE 0x08// This is the max rank that a unit can get.
-BYTE 0x07 // This is the max rank that an umpromoted unit can get.
+BYTE 0xFB// This is the max rank that a unit can get.
+BYTE 0xFB // This is the max rank that an umpromoted unit can get.
 BYTE 0x00
 
 lWEXPRank1:

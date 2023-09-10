@@ -5,8 +5,14 @@ Broadsword[X]
 #0x40C
 A family heirloom. Prevents counters.[X]
 
+#0x35b
+ReaverPrf[X]
+
+#0x40b
+Reverses weapon triangle.[X]
+
 #0x3d9
-Leather Shield[X]
+Hide Shield[X]
 
 #0x488
 Increases defense by 2.[X]
@@ -14,5 +20,29 @@ Increases defense by 2.[X]
 #0x3dc
 Staff Ring[X]
 
+#0x48b
+Increases range of staves by 1.[X]
+
 #0x3d8
 Advantage Ring[X]
+
+#0x487
+Doubles weapon triangle effects.[X]
+
+#0x3d6
+Sight Band[X]
+
+#0x485
+Increases hit by 15.[X]
+
+#0x3d5
+Power Ring[X]
+
+#0x484
+Increases strength by 2.[X]
+
+#0x362
+Fire Sword[X]
+
+#0x355
+Dagger[X]

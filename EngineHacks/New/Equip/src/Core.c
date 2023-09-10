@@ -26,11 +26,18 @@ bool CanUnitEquipItem (Unit* unit, Item item){
 
 	// Can add extra conditionals here
 
-	if (GetItemIndex(item) == 0xE2){
-		if (GetItemData(GetItemIndex(GetUnitEquippedWeapon(unit)))->weaponType != ITYPE_BOW){
-			return false;
-		}
+	//check the unit's dark rank for if the unit can equip the item
+	if(unit->ranks[ITYPE_DARK] >= (GetItemData(GetItemIndex(item))->weaponRank)){
+		return true;
+	} else{
+		return false;
 	}
+
+	//if (GetItemIndex(item) == 0xE2){
+	//	if (GetItemData(GetItemIndex(GetUnitEquippedWeapon(unit)))->weaponType != ITYPE_BOW){
+	//		return false;
+	//	}
+	//}
 
 	return true;
 }

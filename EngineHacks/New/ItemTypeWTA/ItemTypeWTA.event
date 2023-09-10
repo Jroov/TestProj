@@ -1,0 +1,7 @@
+//Goes in skill system WTA loop
+
+#include "ItemTypeWTA.lyn.event"
+
+ItemTypeWTAList: //Attacker weapon, Type, Hit change, Damage change
+BYTE PoisonSword 1 10 1 //The Iron Sword gains +1 atk, +15 Hit against Lances alongside axes
+WORD 0 //terminator

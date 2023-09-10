@@ -1,0 +1,33 @@
+
+#define StatBonus(HPB,StrB,MagB,SklB,SpdB,DefB,ResB,LckB,MovB,ConB) "BYTE HPB StrB SklB SpdB DefB ResB LckB MovB ConB MagB 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0"
+
+ALIGN 4
+HpPlusThreeBoost:
+StatBonus(1,0,0,0,0,0,0,0,0,0)
+
+ALIGN 4
+StrPlusOneBoost:
+StatBonus(0,1,0,0,0,0,0,0,0,0)
+
+ALIGN 4
+StrPlusTwoBoost:
+StatBonus(0,2,0,0,0,0,0,0,0,0)
+
+ALIGN 4
+MagPlusOneBoost:
+StatBonus(0,0,1,0,0,0,0,0,0,0)
+
+SklPlusOneBoost:
+StatBonus(0,0,0,1,0,0,0,0,0,0)
+
+SpdPlusOneBoost:
+StatBonus(0,0,0,0,1,0,0,0,0,0)
+
+DefPlusOneBoost:
+StatBonus(0,0,0,0,0,1,0,0,0,0)
+
+ResPlusOneBoost:
+StatBonus(0,0,0,0,0,0,1,0,0,0)
+
+LuckPlusOneBoost:
+StatBonus(0,0,0,0,0,0,0,1,0,0)

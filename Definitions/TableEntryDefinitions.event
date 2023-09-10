@@ -1,11 +1,13 @@
-//Items
+//Weapons
 #define Broadsword 0x9
+#define ReaverPrf 0x8
+
+//Items
 #define LeatherShield 0x60
 #define AdvantageRing 0x5f
 #define StaffRing 0x63
 #define SightBand 0x5d
-
-
+#define PowerRing 0x5c
 
 
 //Classes

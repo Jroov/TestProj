@@ -528,11 +528,11 @@
 
 //Holy Aura: Gain +1 damage, +5% hit, +5% avoid, +5% crit when using light.
 //By Datagne
-#define HolyAuraID 171
+#define HolyAuraID 255
 
 //Insight: Hit +20.
 //By Sme
-#define InsightID 255
+#define InsightID 171
 
 //Knight Aspirant: When above 75% health, +2 damage, +15% avoid.
 //By Datagne
@@ -898,7 +898,7 @@
 
 //Armsthrift: Luck % chance to not consume weapon durability.
 //Author Unknown (Initial Commit)
-#define ArmsthriftID 138
+#define ArmsthriftID 255
 
 //Dazzle: Opponents cannot counterattack this unit.
 //By circleseverywhere
@@ -924,7 +924,7 @@
 
 // Reckless Fighter: Both units in combat always double. 
 // By Vesly 
-#define RecklessFighterID 255
+#define RecklessFighterID 138
 
 
 //Wary Fighter: Unit cannot double or be doubled.

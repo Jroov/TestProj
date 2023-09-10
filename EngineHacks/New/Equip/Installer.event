@@ -8,13 +8,13 @@ BYTE LeatherShield
 BYTE StaffRing
 BYTE AdvantageRing
 BYTE SightBand
+BYTE PowerRing
 BYTE 0x00 //terminator
 
 // Defense equipment loses durability on each hit taken
 ALIGN 4
 DefenseEquipmentList:
 BYTE LeatherShield
-BYTE SightBand
 BYTE 0x00 // terminator
 
 // Offense equipment loses durability on each attack made
@@ -23,6 +23,7 @@ OffenseEquipmentList:
 BYTE StaffRing
 BYTE AdvantageRing
 BYTE SightBand
+BYTE PowerRing
 BYTE 0x00 // terminator
 
 // Equipment in neither list doesn't decrement durability

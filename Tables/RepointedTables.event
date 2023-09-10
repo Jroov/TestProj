@@ -1,0 +1,5 @@
+ALIGN 4
+#include "EA/StatBoostTable.event"
+
+// Not really a table but putting it here anyway
+#include "EA/MovementCostTable.event"

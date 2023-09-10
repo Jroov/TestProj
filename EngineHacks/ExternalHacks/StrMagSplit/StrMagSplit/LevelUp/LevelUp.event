@@ -8,7 +8,7 @@
 #endif
 PUSH
 
-    #define ExpandedLevelUpScreen
+    //#define ExpandedLevelUpScreen
 	//Function that adds promo bonuses to char data
     ORG $2BDFA
 	SHORT 0

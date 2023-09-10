@@ -6,3 +6,9 @@ Unequip[X]
 
 ## UnequipEquipmentDescription
 Remove this equipment.[X]
+
+## EscapeDisplay
+Escape[X]
+
+## EquipRank
+Equipment mastery level.[X]
