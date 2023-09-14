@@ -1,2 +1,4 @@
 #include "Statscreen/StatscreenInstaller.event"
 #include "Portraits/PortraitInstaller.event"
+#include "Map Sprites/MasterMapSpriteInstaller.event"
+#include "Map Sprites/Map_Sprite_Installer.event"

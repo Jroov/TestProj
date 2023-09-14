@@ -15,6 +15,7 @@ Reverses weapon triangle.[X]
 Hide Shield[X]
 
 #0x488
+Rank: E[N]
 Increases defense by 2.[X]
 
 #0x3dc
@@ -46,3 +47,11 @@ Fire Sword[X]
 
 #0x355
 Dagger[X]
+
+#0x3d7
+Knight Ring[X]
+
+#0x486
+Rank: C[N]
+Allows the user to move after[N]
+non-combat/staff actions.[X]

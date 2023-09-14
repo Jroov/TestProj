@@ -1,6 +1,7 @@
 //Weapons
 #define Broadsword 0x9
 #define ReaverPrf 0x8
+#define ThrownSpear 0x18
 
 //Items
 #define LeatherShield 0x60
@@ -8,11 +9,14 @@
 #define StaffRing 0x63
 #define SightBand 0x5d
 #define PowerRing 0x5c
+#define CanterRing 0x5e
 
 
 //Classes
-#define Armor 0x9
+#define Armor 0x9 
 #define fVillager 0x70
+#define Trainee 0x37
+
 
 //Characters
 #define Medrick 0x1
@@ -23,18 +27,27 @@
 #define Kay 0x6
 #define Sarina 0x8
 #define Miruna 0x9
-#define Rylan 0xa
+#define Rylen 0xa
+#define Raza 0x7
+
+//Bosses
+//#define CetriEnemy 0x6A
 
 //Mugs
+//Player Units
 #define MedrickMug 0x2
 #define RasmusMug 0x3
 #define BriscoeMug 0x4
 #define HalleMug 0x5
 #define FranMug 0x6
 #define KayMug 0x7
+#define RazaMug 0x8
 #define SarinaMug 0x9
 #define MirunaMug 0xa
 #define RylenMug 0xb
+
+//Bosses
+//#define CetriMug 0x12
 
 //Standing Map Sprites
 #define SigilTrapMapSprite 0x71

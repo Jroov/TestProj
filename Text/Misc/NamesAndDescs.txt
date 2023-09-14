@@ -19,5 +19,8 @@ Pirate[X]
 # 0x0218
 Kay[X]
 
+# 0x21b
+Rylen[X]
+
 # 0x024a
 Cetri[X]

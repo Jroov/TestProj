@@ -11,7 +11,7 @@ set "source_rom=%~dp0FE8_clean.gba"
 set "main_event=%~dp0ROMBuildfile.event"
 
 set "target_rom=%~dp0TestProj.gba"
-set "target_ups=%~dp0TestProk.ups"
+set "target_ups=%~dp0TestProj.ups"
 set "target_sym=%~dp0TestProj.sym"
 
 @rem defining tools

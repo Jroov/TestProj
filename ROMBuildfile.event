@@ -15,13 +15,13 @@
     #include "Tables/TableInstaller.event"
     MESSAGE Used table space ends at currentOffset
 
+   	//Graphics
+    #include "Graphics/MasterGraphicsInstaller.event"
+    MESSAGE Graphics data ends at currentOffset
+
     //Engine Hacks
     #include "EngineHacks/_MasterHackInstaller.event"
     MESSAGE Used hax space ends at currentOffset
-
-	//Graphics
-    #include "Graphics/MasterGraphicsInstaller.event"
-    MESSAGE Graphics data ends at currentOffset
 	
 	//#ifdef USE_TEST_MAP
     //Events

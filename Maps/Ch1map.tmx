@@ -752,7 +752,7 @@
    <tile gid="853"/>
   </data>
  </layer>
- <layer id="5" name="LeftVillage" width="35" height="21">
+ <layer id="5" name="LeftVillage" width="35" height="21" visible="0">
   <properties>
    <property name="Height" value="1"/>
    <property name="ID" value="0"/>
@@ -1498,7 +1498,7 @@
    <tile/>
   </data>
  </layer>
- <layer id="6" name="RightVillage" width="35" height="21">
+ <layer id="6" name="RightVillage" width="35" height="21" visible="0">
   <properties>
    <property name="Height" value="1"/>
    <property name="ID" value="1"/>
@@ -2244,7 +2244,7 @@
    <tile/>
   </data>
  </layer>
- <layer id="7" name="BottomVillage" width="35" height="21">
+ <layer id="7" name="BottomVillage" width="35" height="21" visible="0">
   <properties>
    <property name="Height" value="1"/>
    <property name="ID" value="2"/>

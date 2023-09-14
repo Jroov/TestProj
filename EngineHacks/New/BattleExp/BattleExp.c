@@ -51,7 +51,7 @@ int GetBattleUnitExpGain(BattleUnit* actor, BattleUnit* target){
 				bossFactor = 2;
 			}
 			int killexp;
-			int initialKillExp = (30*bossFactor + (4 * GetLevelDifference(actor, target)))/divisor;
+			int initialKillExp = (28*bossFactor + (4 * GetLevelDifference(actor, target)))/divisor;
 			if(initialKillExp <= 0){
 				killexp = (5/divisor);
 			}

@@ -101,11 +101,43 @@ ENDA
 LocationBasedEvents:
 Escape(0xE,Escape,31,7)
 Village(0x9,VillageEventRecruit,18,7)
-House(0xA,VillageEventEquips1,10,8)
+Village(0xA,VillageEventEquips1,10,8)
 Village(0xB,VillageEventEquips2,20,13)		
 END_MAIN
 
 VillageEventRecruit:
+CHECK_ACTIVE //saved in sC
+SVAL 1 Medrick
+BNE 3 1 0xC
+Text(Text_Ch1_Medrick_Village2)
+GOTO 9
+LABEL 3
+SVAL 1 Briscoe
+BNE 4 1 0xC
+Text(Text_Ch1_Briscoe_Village2)
+GOTO 9
+LABEL 4
+SVAL 1 Rasmus
+BNE 5 1 0xC
+Text(Text_Ch1_Rasmus_Village2)
+GOTO 9
+LABEL 5
+SVAL 1 Fran
+BNE 6 1 0xC
+Text(Text_Ch1_Fran_Village2)
+GOTO 9
+LABEL 6
+SVAL 1 Halle
+BNE 7 1 0xC
+Text(Text_Ch1_Halle_Village2)
+GOTO 9
+LABEL 7
+SVAL 1 Rylen
+BNE 8 1 0xC
+Text(Text_Ch1_Rylan_Village2)
+LABEL 8
+LABEL 9
+NoFade
 LOAD1 0x1 VillageUnit
 ENDA
 
@@ -113,39 +145,40 @@ VillageEventEquips1:
 CHECK_ACTIVE //saved in sC
 SVAL 1 Medrick
 BNE 3 1 0xC
-TextGiveItem(Text_Ch1_Medrick_Village, AdvantageRing, 0xFFFF)
-GOTO 9
-LABEL 3
+	TextGiveItem(Text_Ch1_Medrick_Village, AdvantageRing, 0xFFFF)
+	GOTO 9
+	LABEL 3
 SVAL 1 Briscoe
 BNE 4 1 0xC
-TextGiveItem(Text_Ch1_Briscoe_Village, AdvantageRing, 0xFFFF)
-GOTO 9
-LABEL 4
+	TextGiveItem(Text_Ch1_Briscoe_Village, AdvantageRing, 0xFFFF)
+	GOTO 9
+	LABEL 4
 SVAL 1 Rasmus
 BNE 5 1 0xC
-TextGiveItem(Text_Ch1_Rasmus_Village, PowerRing, 0xFFFF)
-GOTO 9
-LABEL 5
+	TextGiveItem(Text_Ch1_Rasmus_Village, PowerRing, 0xFFFF)
+	GOTO 9
+	LABEL 5
 SVAL 1 Fran
 BNE 6 1 0xC
-TextGiveItem(Text_Ch1_Fran_Village, StaffRing, 0xFFFF)
-GOTO 9
-LABEL 6
+	TextGiveItem(Text_Ch1_Fran_Village, StaffRing, 0xFFFF)
+	GOTO 9
+	LABEL 6
 SVAL 1 Halle
 BNE 7 1 0xC
-TextGiveItem(Text_Ch1_Halle_Village, StaffRing, 0xFFFF)
-GOTO 9
-LABEL 7
-SVAL 1 Rylan
+	TextGiveItem(Text_Ch1_Halle_Village, StaffRing, 0xFFFF)
+	GOTO 9
+	LABEL 7
+SVAL 1 Rylen
 BNE 8 1 0xC
-TextGiveItem(Text_Ch1_Rylan_Village, PowerRing, 0xFFFF)
-LABEL 8
+	TextGiveItem(Text_Ch1_Rylan_Village, PowerRing, 0xFFFF)
+	LABEL 8
 LABEL 9
-//TILECHANGE 0x01
+//TILECHANGE 0x00
 NoFade
 ENDA
 
 VillageEventEquips2:
+Text(Equips_2_Village)
 GiveItem(SightBand, 0xFFFF)
 NoFade
 ENDA
@@ -163,7 +196,7 @@ Tutorial:
 END_MAIN
 
 VillageUnit:
-	UNIT Sarina fVillager 0x0 Level(1,Ally,0) [18,5] 0 0 0 0 [] NoAI
+	UNIT Sarina Trainee 0x0 Level(1,Ally,0) [18,8] 0 0 0 0 [ThrownSpear] NoAI
 	UNIT
 
 Units1:
@@ -172,7 +205,7 @@ Units1:
 	UNIT Briscoe Soldier 0x0 Level(3,Ally,0) [7,12] 0 0 0 0 [IronLance, LeatherShield, Vulnerary] NoAI
 	UNIT Halle Archer 0x0 Level(1,Ally,0) [6,11] 0 0 0 0 [IronBow, Vulnerary] NoAI
 	UNIT Fran Cleric 0x0 Level(1,Ally,0) [6,12] 0 0 0 0 [Vulnerary] NoAI
-	UNIT Rylan Armor 0x0 Level(1,Ally,0) [7,11] 0 0 0 0 [IronLance,IronSword] NoAI
+	UNIT Rylen Armor 0x0 Level(1,Ally,0) [7,11] 0 0 0 0 [IronLance,IronSword] NoAI
 	UNIT
 
 EnemyUnits:
@@ -230,6 +263,11 @@ ENUN
 ENDA
 
 EndingScene:
+REMOVEPORTRAITS
+SetBackground(0x1)
+Text(Text_Ch1_End_1)
+CALL $9EE2C4
+FADI 16
 MNC2 1
 NoFade
 ENDA

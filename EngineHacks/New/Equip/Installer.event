@@ -9,6 +9,7 @@ BYTE StaffRing
 BYTE AdvantageRing
 BYTE SightBand
 BYTE PowerRing
+BYTE CanterRing
 BYTE 0x00 //terminator
 
 // Defense equipment loses durability on each hit taken

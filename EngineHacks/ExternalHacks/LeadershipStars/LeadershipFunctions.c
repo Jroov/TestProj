@@ -10,6 +10,10 @@
 
 extern struct Unit gUnitArrayRed[]; //! FE8U = 0x202CFBC
 extern struct Unit gUnitArrayGreen[]; //! FE8U = 0x202DDCC
+extern uint8_t gLeadershipUnitListOut[];
+
+static int LeadershipTest(Unit* unit, Unit* other, int param);
+
 
 struct Leadership
 {
@@ -92,11 +96,11 @@ void CalculateHitAvoidBonus(BattleUnit* bunit, signed char leadership)
 		bunit->battleHitRate += leadership * AllyStarHitBonus;
 		bunit->battleAvoidRate += leadership * AllyStarAvoidBonus;
 	}
-	else if (UNIT_FACTION(&bunit->unit) == FACTION_RED)
-	{
-		bunit->battleHitRate += leadership * EnemyStarHitBonus;
-		bunit->battleAvoidRate += leadership * NPCStarAvoidBonus;
-	}
+		else if (UNIT_FACTION(&bunit->unit) == FACTION_RED)
+		{
+			bunit->battleHitRate += leadership * EnemyStarHitBonus;
+			bunit->battleAvoidRate += leadership * NPCStarAvoidBonus;
+		}
 	else
 	{
 		bunit->battleHitRate += leadership * NPCStarHitBonus;
@@ -104,8 +108,87 @@ void CalculateHitAvoidBonus(BattleUnit* bunit, signed char leadership)
 	}
 }
 
+//This function is fine
+long long LeadershipRangeCheck(Unit* unit, int param) {
+	int count = 0;
+	
+	//checking every unit and adding them to the list of units to be buffed
+	for (int i = 0; i < 0x100; ++i) {
+		Unit* other = gUnitLookup[i];
+		
+		if (!other)
+			continue;
+
+		if (unit->index == i)
+			continue;
+
+		if (!other->pCharacterData)
+			continue;
+
+		if (other->state & (US_RESCUED | US_NOT_DEPLOYED | US_DEAD | 0x00010000))
+			continue;
+		
+		int distance = absolute(other->xPos - unit->xPos)
+		             + absolute(other->yPos - unit->yPos);
+		
+		if ((distance <= 3) && LeadershipTest(unit, other, param))
+			gLeaderhsipUnitListOut[count++] = i;
+	}
+
+	//terminating the list
+	gAuraUnitListOut[count] = 0;
+
+	//making a new object, essentially
+	union {
+		long long asLongLong;
+		struct {
+			int count;
+			uint8_t* pList;
+		};
+	} result;
+
+	//saying how long the list is
+	result.count = count;
+	//list of units
+	result.pList = gLeadershipUnitListOut;
+
+	return result.asLongLong;
+}
+
+//Testing skill on one of the two units?? idk
+int LeadershipTest(Unit* unit, Unit* other, int skill, int param) {
+	//checking allegiance function
+	const int(*pAllegianceChecker)(int, int) = ((param & 1) ? AreUnitsAllied : IsSameAllegience);
+
+	//no clue
+	if (param == 4)
+		return SkillTester(other, skill);
+	
+	//no clue
+	if (param > 4)
+		return 0;
+
+	//checking allegiance using the previously defined function
+	int check = pAllegianceChecker(unit->index, other->index);
+
+	//no clue
+	if (param & 2)
+		check = !check;
+
+	//probably just return check here? SkillTester is checking other for having the skill so idk
+	return check && SkillTester(other, skill);
+}
+
 void ApplyLeadershipBonus(BattleUnit *bunitOne, BattleUnit *bunitTwo)
 {
+	//take in the unitone's leadership count
+	//loop through everyone in the gLeadershipUnitListOut
+	//apply calculatehitavoidbonus to them
+	
+	//signed char unitOneLeadership = bunitone.leadership or w/e
+	//while(space in the list)
+	//calculatehitavoidbonus(currententry, unitOneLeadership)
+
 	signed char unitOneLeadership = GetFactionLeadershipCount(UNIT_FACTION(&bunitOne->unit));
 	signed char unitTwoLeadership = GetFactionLeadershipCount(UNIT_FACTION(&bunitTwo->unit));
 	

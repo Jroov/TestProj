@@ -1,0 +1,23 @@
+
+#define SpecifiedBattleConvo(Character1,Character2,Chapter,EventID,TextID) "SHORT Character1 Character2 Chapter EventID TextID 0x0 0x0 0x0; SHORT Character2 Character1 Chapter EventID TextID 0x0 0x0 0x0"
+#define UnspecifiedBattleConvo(Character,Chapter,EventID,TextID) "SHORT Character 0x0 Chapter EventID TextID 0x0 0x0 0x0; SHORT 0x0 Character Chapter EventID TextID 0x0 0x0 0x0"
+
+
+//Ch1
+//Player
+UnspecifiedBattleConvo(Medrick,Chapter1,0x10,Medrick_Ch1_Battle)
+UnspecifiedBattleConvo(Rylen,Chapter1,0x11,Rylen_Ch1_Battle)
+UnspecifiedBattleConvo(Halle,Chapter1,0x12,Halle_Ch1_Battle)
+UnspecifiedBattleConvo(Briscoe,Chapter1,0x13,Briscoe_Ch1_Battle)
+UnspecifiedBattleConvo(Rasmus,Chapter1,0x14,Rasmus_Ch1_Battle)
+UnspecifiedBattleConvo(Fran,Chapter1,0x15,Fran_Ch1_Battle)
+UnspecifiedBattleConvo(Sarina,Chapter1,0x16,Sarina_Ch1_Battle)
+
+//Boss
+//UnspecifiedBattleConvo(0x68,Chapter1,0x1,Boss_Ch1_Battle)
+//UnspecifiedBattleConvo(CetriEnemy,Chapter1,0x16,Cetri_Ch1_Battle)
+
+//Ch2
+
+// Terminator
+BYTE 0xFF 0xFF 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0 0x0

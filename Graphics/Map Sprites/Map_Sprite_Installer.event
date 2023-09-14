@@ -1,0 +1,19 @@
+ALIGN 4
+MedrickStanding:
+#incbin "Dmp/Villager (M) Sword {HyperGammaSpaces}-stand.dmp"
+
+ALIGN 4
+MedrickMoving:
+#incbin "Dmp/Villager (M) Sword {HyperGammaSpaces}-walk.dmp"
+
+ALIGN 4
+ArmorStanding:
+#incbin "Dmp/Knight (U) Lance Alt {Agro}-stand.dmp"
+
+ALIGN 4
+ClericStanding:
+#incbin "Dmp/Cleric (F) Trainee {Tdim}-stand.dmp"
+
+ALIGN 4
+ClericMoving:
+#incbin "Dmp/Cleric (F) Trainee {Tdim}-walk.dmp"

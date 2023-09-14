@@ -9,5 +9,21 @@ RasmusMugData:
 #incbin "Dmp/Rasmus_palette.dmp"
 #incbin "Dmp/Rasmus_minimug.dmp"
 
+ALIGN 16
+RazaMugData:
+#incbin "Dmp/Raza_mug.dmp"
+#incbin "Dmp/Raza_frames.dmp"
+#incbin "Dmp/Raza_palette.dmp"
+#incbin "Dmp/Raza_minimug.dmp"
+
+ALIGN 16
+SarinaMugData:
+#incbin "Dmp/Sarina_mug.dmp"
+#incbin "Dmp/Sarina_frames.dmp"
+#incbin "Dmp/Sarina_palette.dmp"
+#incbin "Dmp/Sarina_minimug.dmp"
+
 
 setMugEntry(RasmusMug, RasmusMugData, 1, 6, 2, 4)
+setMugEntry(RazaMug, RazaMugData, 3, 5, 3, 3)
+setMugEntry(SarinaMug, SarinaMugData, 3, 6, 3, 4)

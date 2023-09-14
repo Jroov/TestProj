@@ -13,6 +13,7 @@ FILL 4*0x100
 	// If GAIDEN_REQUIRES_WRANK in Config.event is uncommented, then a unit will still need weapon rank to wield the Gaiden spell.
 ALIGN 4
 AdvisorSpellList:
+	//BYTE 1 Heal
 	BYTE 1 Fire
 	BYTE 2 Thunder
 	BYTE 3 Heal
@@ -21,8 +22,8 @@ AdvisorSpellList:
 ALIGN 4
 HealerSpellList:
 	BYTE 1 Heal
-	BYTE 5 Mend
-	BYTE 10 Warp
+	BYTE 1 Nosferatu
+	BYTE 6 Rescue
 	//BYTE 12 
 	BYTE 0 0
 	
@@ -33,5 +34,5 @@ VillagerSpellList:
 	//BYTE 12 Sagittae
 	BYTE 0 0
 	
-GaidenList(Seth,AdvisorSpellList) // This macro writes this entry to the spell list table.
-GaidenList(Moulder,HealerSpellList)
+GaidenList(Rasmus,AdvisorSpellList) // This macro writes this entry to the spell list table.
+GaidenList(Fran,HealerSpellList)

@@ -1,5 +1,19 @@
 ALIGN 4
 #include "EA/StatBoostTable.event"
 
+ALIGN 4
+BattleQuoteTable:
+#include "EA/BattleQuoteTable.event"
+
 // Not really a table but putting it here anyway
 #include "EA/MovementCostTable.event"
+
+PUSH
+
+ORG $846AC
+POIN BattleQuoteTable
+
+//ORG $8472C
+//POIN DeathQuoteTable
+
+POP

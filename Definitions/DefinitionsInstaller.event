@@ -2,4 +2,5 @@
 
 #include MacroDefs.event
 
+#include ChapterDefinitions.event
 #define Tonic 0xCB // a durability based item 
