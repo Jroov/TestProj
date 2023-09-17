@@ -1,12 +1,30 @@
 ## MedrickDeathQuote
+[MR][Medrick]
+[MR]Gahhh...[A]
 [X]
 
 ## RasmusDeathQuote
+[MR][Rasmus]
+[MR]King... Leon.. ard...[NL]
+I've... let you down...[A]
 [X]
 
 ## BriscoeDeathQuote
+[MR][Briscoe]
+[MR]No... I have to continue[NL]
+on...[A]
 [X]
 
+## RylenDeathQuote
+[MR][Rylen]
+[MR]Hah... good run,[NL]
+huh?[A]
+[X]
+
+## SarinaDeathQuote
+[MR][Sarina]
+[MR]No...[A]
+[X]
 
 ## Ch1BossDeathQuote
 [X]

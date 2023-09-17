@@ -1,4 +1,4 @@
-/*
+
 #define DeathQuote(Character,Chapter,EventID,TextID) "SHORT Character; BYTE 0xFF Chapter; SHORT EventID TextID 0 0"
 #define DeathQuote(Character,Chapter,EventID,TextID,Pointer) "SHORT Character; BYTE 0xFF Chapter; SHORT EventID TextID ; POIN Pointer"
 
@@ -6,7 +6,7 @@
 #define DeathQuoteGameOver(Character,TextID) "SHORT Character; BYTE 0xFF 0xFF; SHORT 0x65 TextID 0 0"
 #define DeathQuoteBoss(Character,TextID) "SHORT Character; BYTE 0xFF 0xFF; SHORT 0x2 TextID 0 0"
 #define DeathQuoteBossNoFlag(Character,TextID) "SHORT Character; BYTE 0xFF 0xFF; SHORT 0x0 TextID 0 0"
-*/
+
 
 // Player characters
 DeathQuoteGameOver(Medrick,MedrickDeathQuote)

@@ -30,7 +30,7 @@ BYTE 1 // change to 0 if you don't want this behaviour
 
 LeadershipTable:
 // ALLIES
-BYTE Rasmus 1
+BYTE Rasmus 1 
 // BOSSES
 BYTE ONeill 1
 BYTE 0x0 0x0 //delimiter

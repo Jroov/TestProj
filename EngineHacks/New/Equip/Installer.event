@@ -10,6 +10,7 @@ BYTE AdvantageRing
 BYTE SightBand
 BYTE PowerRing
 BYTE CanterRing
+BYTE FocusBand
 BYTE 0x00 //terminator
 
 // Defense equipment loses durability on each hit taken
@@ -21,10 +22,8 @@ BYTE 0x00 // terminator
 // Offense equipment loses durability on each attack made
 ALIGN 4
 OffenseEquipmentList:
-BYTE StaffRing
 BYTE AdvantageRing
 BYTE SightBand
-BYTE PowerRing
 BYTE 0x00 // terminator
 
 // Equipment in neither list doesn't decrement durability

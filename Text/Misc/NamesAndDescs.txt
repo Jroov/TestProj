@@ -13,8 +13,11 @@ Halle[X]
 # 0x0216
 Fran[X]
 
+# 0x219
+Sarina[X]
+
 # 0x0217
-Pirate[X]
+Raza[X]
 
 # 0x0218
 Kay[X]

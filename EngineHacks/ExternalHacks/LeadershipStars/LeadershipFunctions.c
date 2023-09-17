@@ -109,7 +109,7 @@ void CalculateHitAvoidBonus(BattleUnit* bunit, signed char leadership)
 }
 
 //This function is fine
-long long LeadershipRangeCheck(Unit* unit, int param) {
+uint8_t LeadershipRangeCheck(Unit* unit, int param) {
 	int count = 0;
 	
 	//checking every unit and adding them to the list of units to be buffed
@@ -138,65 +138,53 @@ long long LeadershipRangeCheck(Unit* unit, int param) {
 	//terminating the list
 	gAuraUnitListOut[count] = 0;
 
-	//making a new object, essentially
-	union {
-		long long asLongLong;
-		struct {
-			int count;
-			uint8_t* pList;
-		};
-	} result;
-
-	//saying how long the list is
-	result.count = count;
-	//list of units
-	result.pList = gLeadershipUnitListOut;
-
-	return result.asLongLong;
+	return gLeadershipUnitListOut;
 }
 
 //Testing skill on one of the two units?? idk
-int LeadershipTest(Unit* unit, Unit* other, int skill, int param) {
+int LeadershipTest(Unit* unit, Unit* other, int param) {
 	//checking allegiance function
 	const int(*pAllegianceChecker)(int, int) = ((param & 1) ? AreUnitsAllied : IsSameAllegience);
 
-	//no clue
 	if (param == 4)
-		return SkillTester(other, skill);
+		return LeadershipTester(other);
 	
-	//no clue
 	if (param > 4)
 		return 0;
 
 	//checking allegiance using the previously defined function
 	int check = pAllegianceChecker(unit->index, other->index);
 
-	//no clue
 	if (param & 2)
 		check = !check;
 
-	//probably just return check here? SkillTester is checking other for having the skill so idk
-	return check && SkillTester(other, skill);
+	return check && LeadershipTester(other);
+}
+
+bool LeadershipTester(Unit* unit) {
+	if(GetLeadershipStarCount(unit) !- 0xFF){
+		return TRUE;
+	}
+	return FALSE;
 }
 
 void ApplyLeadershipBonus(BattleUnit *bunitOne, BattleUnit *bunitTwo)
 {
-	//take in the unitone's leadership count
-	//loop through everyone in the gLeadershipUnitListOut
-	//apply calculatehitavoidbonus to them
-	
-	//signed char unitOneLeadership = bunitone.leadership or w/e
-	//while(space in the list)
-	//calculatehitavoidbonus(currententry, unitOneLeadership)
+	signed char unitOneLeadership = GetLeadershipStarCount(&bunitOne->unit);
+	uint8_t LeadershipList = LeadershipRangeCheck(&bunitOne->unit, UNIT_FACTION(&bunitOne->unit))
+	if (unitOneLeadership != 0xFF){
+		for(int i = 0; LeadershipList[i] != 0; i++){
+			CalculateHitAvoidBonus(LeadershipList[i], unitOneLeadership)
+		}
+	}
 
-	signed char unitOneLeadership = GetFactionLeadershipCount(UNIT_FACTION(&bunitOne->unit));
+	//unused but I don't want to change that much in the rest of how this works, just going to turn off canceloutopposingleadership
 	signed char unitTwoLeadership = GetFactionLeadershipCount(UNIT_FACTION(&bunitTwo->unit));
 	
 	if (CancelOutOpposingLeadership)
 		unitOneLeadership -= unitTwoLeadership;
+	//end of unused
 	
-	if (unitOneLeadership > 0)
-		CalculateHitAvoidBonus(bunitOne, unitOneLeadership);
 }
 
 // gets the leadership star count for a single unit

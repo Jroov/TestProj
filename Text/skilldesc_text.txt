@@ -255,8 +255,8 @@ Spur Speed: Adjacent allies[N]
 gain +4 Attack Speed.[X]
 
 ## SD_SpurDef
-Spur Defense: Adjacent allies[N]
-take -4 physical damage.[X]
+Protective Shield: Adjacent[N]
+allies take -1 physical damage.[X]
 
 ## SD_SpurRes
 Spur Resistance: Adjacent allies[N]

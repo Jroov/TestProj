@@ -92,6 +92,10 @@ sinks this ship.[A]
 [FarRight]...[A]
 [X]
 
+## Text_Ch2_Medrick_Rylen
+[ConvoText]
+[MR][Medrick]
+
 ## Text_Ch2_Rasmsus_Panic
 [ConversationText]
 [MidRight][LoadRasmus]
@@ -129,4 +133,16 @@ Save the complaints for later![A]
 [MidLeft]Damn... our country's[NL]
 precious relic...[AN]
 in the hands of a mere child...[A]
+[X]
+
+## Raza_Ch2_Battle
+[MR][Raza]
+[MR]Hah! You think you[NL]
+can kill me?[AN]
+I'd like to see you try![A]
+[X]
+
+## Kay_Ch2_Battle
+[MR][Kay]
+[MR]Give me a break.[AN]
 [X]

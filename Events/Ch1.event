@@ -22,7 +22,6 @@ END_MAIN
 AIChange:
 SetAI(2,6,0x00,0x00)
 SetAI(2,15,0x00,0x00)
-ENDA
 
 
 Reinforcements1:
@@ -145,12 +144,12 @@ VillageEventEquips1:
 CHECK_ACTIVE //saved in sC
 SVAL 1 Medrick
 BNE 3 1 0xC
-	TextGiveItem(Text_Ch1_Medrick_Village, AdvantageRing, 0xFFFF)
+	TextGiveItem(Text_Ch1_Medrick_Village, FocusBand, 0xFFFF)
 	GOTO 9
 	LABEL 3
 SVAL 1 Briscoe
 BNE 4 1 0xC
-	TextGiveItem(Text_Ch1_Briscoe_Village, AdvantageRing, 0xFFFF)
+	TextGiveItem(Text_Ch1_Briscoe_Village, FocusBand, 0xFFFF)
 	GOTO 9
 	LABEL 4
 SVAL 1 Rasmus
@@ -211,7 +210,7 @@ Units1:
 EnemyUnits:
 	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [10,11] 0 0 0 0 [IronAxe] PWHAI
 	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [11,12] 0 0 0 0 [IronSword] AIRAI //[0x00,0x12,0x04,0x00] //Charge after 1 turn
-	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [11,10] 0 0 0 0 [IronLance] AIRAI
+	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [12,10] 0 0 0 0 [IronLance] AIRAI
 	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [11,16] 0 0 0 0 [IronSword] PWHAI
 	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [16,8] 0 0 0 0 [IronAxe] PWHAI
 	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [17,5] 0 0 0 0 [IronLance] PWHAI
@@ -260,6 +259,8 @@ LOAD1 0x1 Units1
 ENUN
 LOAD1 0x1 EnemyUnits
 ENUN
+SVAL 1 6
+SET_HP Rasmus
 ENDA
 
 EndingScene:

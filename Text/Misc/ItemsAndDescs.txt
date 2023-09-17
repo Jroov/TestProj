@@ -11,6 +11,24 @@ ReaverPrf[X]
 #0x40b
 Reverses weapon triangle.[X]
 
+#0x36d
+Pilum[X]
+
+#0x370
+Ridersbane[X]
+
+#0x358
+Greatsword[X]
+
+#0x408
+Cannot make follow-up attacks.[X]
+
+#0x359
+Claymore[X]
+
+#0x35a
+Zweihander[X]
+
 #0x3d9
 Hide Shield[X]
 
@@ -22,6 +40,7 @@ Increases defense by 2.[X]
 Staff Ring[X]
 
 #0x48b
+Rank: C[NL]
 Increases range of staves by 1.[X]
 
 #0x3d8
@@ -34,12 +53,14 @@ Doubles weapon triangle effects.[X]
 Sight Band[X]
 
 #0x485
-Increases hit by 15.[X]
+Rank: E[NL]
+Increases hit by 25.[X]
 
 #0x3d5
 Power Ring[X]
 
 #0x484
+Rank: D[NL]
 Increases strength by 2.[X]
 
 #0x362
@@ -55,3 +76,11 @@ Knight Ring[X]
 Rank: C[N]
 Allows the user to move after[N]
 non-combat/staff actions.[X]
+
+#0x3dd
+Focus Band[X]
+
+#0x48c
+Rank: C[N]
+Grants +3 attack speed if[N]
+less than 4 items in inventory.[X]

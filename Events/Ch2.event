@@ -1,0 +1,182 @@
+EventPointerTable(0x0A, PointerList)
+
+PointerList:
+POIN TurnBasedEvents
+POIN CharacterBasedEvents
+POIN LocationBasedEvents
+POIN MiscBasedEvents
+POIN Dunno1 Dunno2 Dunno3 Tutorial
+POIN Traps1 Traps2
+POIN Units1 Units1  //This unit group determines the number and position of deployment slots when there is a prep screen
+POIN $0 $0 $0
+POIN $0 $0 $0
+POIN BeginningScene EndingScene
+
+TurnBasedEvents:
+END_MAIN
+
+// Prep screen shop (copied from runa)
+
+PUSH
+  ORG 0x99E64
+    POIN PrepScreenShop
+POP
+
+ALIGN 4
+PrepScreenShop:
+//SHLI IronSword IronLance IronAxe IronBow Fire Heal
+SHLI SlimSword SlimLance PoisonAxe IronBow Fire Heal
+ALIGN 4
+
+ALIGN 32
+CharacterBasedEvents:
+END_MAIN
+
+MiscBasedEvents:
+CauseGameOverIfLordDies
+AFEV 0x23 WinChap 0x22
+AFEV 0x0 CheckNoUnits 0x0
+END_MAIN
+
+ALIGN 4
+CheckNoUnits:
+ASMC GetBlueUnitCountASMC
+BNE 1 s0 sC
+ENUT 0x03
+CALL EndingScene
+LABEL 1
+NoFade
+ENDA
+
+WinChap:
+ENUF 0x23
+ENUF 0x22
+CHECK_EVENTID 0xC
+BEQ 2 0x0 0xC
+CHECK_EVENTID 0xD
+BEQ 2 0x0 0xC
+CHECK_EVENTID 0xB
+CALL EndingScene
+LABEL 2
+ENDA
+
+LocationBasedEvents:	
+END_MAIN
+
+Dunno1:
+END_MAIN
+
+Dunno2:
+END_MAIN
+
+Dunno3:
+END_MAIN
+
+Tutorial:
+END_MAIN
+
+Units1:
+	UNIT Medrick EirikaLord 0x0 Level(1,Ally,0) [7,10] 0 0 0 0 [Rapier,ReaverPrf,Vulnerary] NoAI
+	UNIT Rasmus	 Mage 0x0 Level(1,Ally,0) [6,10] 0 0 0 0 [Vulnerary] NoAI
+	UNIT Briscoe Soldier 0x0 Level(3,Ally,0) [7,12] 0 0 0 0 [IronLance, LeatherShield, Vulnerary] NoAI
+	UNIT Halle Archer 0x0 Level(1,Ally,0) [6,11] 0 0 0 0 [IronBow, Vulnerary] NoAI
+	UNIT Fran Cleric 0x0 Level(1,Ally,0) [6,12] 0 0 0 0 [Vulnerary] NoAI
+	UNIT Rylen Armor 0x0 Level(1,Ally,0) [7,11] 0 0 0 0 [IronLance,IronSword] NoAI
+	UNIT Raza Pirate 0x0 Level(5,Ally,0) [7,11] 0 0 0 0 [IronAxe,HandAxe] NoAI
+	UNIT Kay Thief 0x0 Level(1,Ally,0) [7,11] 0 0 0 0 [LightBrand,CanterRing] NoAI
+	UNIT
+
+EnemyUnits:
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [10,11] 0 0 0 0 [IronAxe] PWHAI
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [11,12] 0 0 0 0 [IronSword] AIRAI //[0x00,0x12,0x04,0x00] //Charge after 1 turn
+	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [12,10] 0 0 0 0 [IronLance] AIRAI
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [11,16] 0 0 0 0 [IronSword] PWHAI
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [16,8] 0 0 0 0 [IronAxe] PWHAI
+	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [17,5] 0 0 0 0 [IronLance] PWHAI
+	UNIT 0x80 Archer  0x0 Level(1,Enemy,1) [18,13] 0 0 0 0 [IronBow] AIRAI
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [23,10] 0 0 0 0 [IronAxe] AIRAIg2 //Group2
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [23,11] 0 0 0 0 [IronAxe] AIRAIg2 //Group2
+	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [22,9] 0 0 0 0 [IronLance] AIRAIg1 //Group1
+	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [22,12] 0 0 0 0 [IronLance] AIRAIg1 //Group1
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [2,6] 0 0 0 0 [IronSword] AIRAI //Charge on turn 4
+	UNIT 0x80 Archer  0x0 Level(1,Enemy,1) [2,15] 0 0 0 0 [IronBow] AIRAI //Charge on turn 4
+	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [16,19] 0 0 0 0 [Javelin] NMAI
+	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [17,19] 0 0 0 0 [Javelin] NMAI
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [16,17] 0 0 0 0 [IronSword] AIRAI
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [20,10] 0 0 0 0 [IronSword] AIRAI
+	UNIT 0x68 Mercenary 0x0 Level(3,Enemy,0) [31,8] 0 0 0 0 [IronSword] AIRAI //boss
+	UNIT 0x80 Archer  0x0 Level(1,Enemy,1) [27,6] 0 0 0 0 [IronBow] AIRAI
+	UNIT 0x80 Soldier  0x0 Level(1,Enemy,1) [32,13] 0 0 0 0 [IronLance] AIRAI
+	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [26,11] 0 0 0 0 [IronSword] AIRAI
+	UNIT 0x80 Fighter  0x0 Level(1,Enemy,1) [26,10] 0 0 0 0 [IronAxe] AIRAI
+
+	UNIT
+
+Traps1:
+BlueSigil(31,7)
+ENDTRAP
+ALIGN 4
+
+Traps2:
+ENDTRAP
+ALIGN 4
+
+BeginningScene:
+ASMC ClearAllDebuffs
+REMOVEPORTRAITS
+SetBackground(0x1)
+Text(Text_Ch2_Villagers_Raza)
+CALL $9EE2C4
+FADI 16
+REMOVEPORTRAITS
+SetBackground(0x1)
+Text(Text_Ch2_Medrick_Miruna)
+CALL $9EE2C4
+FADI 16
+REMOVEPORTRAITS
+SetBackground(0x1)
+Text(Text_Ch2_Briscoe_Kay)
+CALL $9EE2C4
+FADI 16
+REMOVEPORTRAITS
+SetBackground(0x1)
+Text(Text_Ch2_Briscoe_Villagers)
+CALL $9EE2C4
+FADI 16
+
+CHECK_ALIVE Rylen //returns 1 to sC if true, 0 otherwise
+BNE 1 1 0xC
+REMOVEPORTRAITS
+SetBackground(0x1)
+Text(Text_Ch2_Medrick_Rylen)
+CALL $9EE2C4
+FADI 16
+
+REMOVEPORTRAITS
+SetBackground(0x1)
+Text(Text_Ch2_Rasmsus_Panic)
+CALL $9EE2C4
+FADI 16
+LABEL 1
+LOAD1 0x1 Units1
+ENUN
+LOAD1 0x1 EnemyUnits
+ENUN
+SVAL 1 6
+SET_HP Rasmus
+ENDA
+
+EndingScene:
+REMOVEPORTRAITS
+SetBackground(0x1)
+Text(Text_Ch1_End_1)
+CALL $9EE2C4
+FADI 16
+MNC2 1
+NoFade
+ENDA
+
+Escape:
+ENUF 0xE
+NoFade
+ENDA

@@ -6,6 +6,12 @@
 //Sme/Loog/Pik Fatigue
 #include "Fatigue/Fatigue.event"
 
+//Sme Fixed damage weapons
+#include "FixedDamageWeapons/FixedDamageWeapons.event"
+
+//rng randomizer by tr143
+//#include "RNGRandomizer/RNGRandomizerInstaller.event"
+
 //Loog/Pik BattleExp
 #include "BattleExp/Installer.event"
 
@@ -42,6 +48,8 @@
 //Loog & Zane
 #include "ModularMinimugBox/Installers/MMBInstallerSagaOfTheSigilbearers.event"
 
+//Contro - ExpByAction
+#include "ExpByAction/Installer.event"
 
 // installs thracia trade
 PUSH
@@ -54,6 +62,7 @@ PUSH
 ORG $B5237
 BYTE 0xE0
 POP
+
 
 // Kill difficulty select
 PUSH
@@ -129,6 +138,13 @@ POP
 PUSH
 ORG $2ABC8
 SHORT 0x46C0 //nop
+POP
+
+//Contro
+PUSH
+//Remove speed requirement from steal
+ORG 0x25BBE
+SHORT 0x46C0
 POP
 
 ALIGN 4

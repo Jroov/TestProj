@@ -10,6 +10,8 @@
 #define SightBand 0x5d
 #define PowerRing 0x5c
 #define CanterRing 0x5e
+#define FocusBand 0x64
+
 
 
 //Classes

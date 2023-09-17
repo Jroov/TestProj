@@ -20,6 +20,8 @@ Learned  [X]
 
 #include "ChapterText/ChapterTextInstaller.txt"
 
+#include "Misc/DeathQuotes.txt"
+
 ## TonicUseBoxText
 Stat increased.[X]
 
