@@ -12,10 +12,11 @@ POIN $0 $0 $0
 POIN $0 $0 $0
 POIN BeginningScene EndingScene
 
+#define Cursor(charID, time) "CURSOR charID; STAL time; REMOVE_CURSORS"
 TurnBasedEvents:
 TurnEventPlayer(0,AIChange,4)
-TurnEventPlayer(0,Reinforcements1, 7)
-TurnEventPlayer(0,Reinforcements2,9)
+TurnEventPlayer(0,Reinforcements1, 8)
+TurnEventPlayer(0,Reinforcements2,10)
 TurnEventEnemy(0,CetriGang,9)
 END_MAIN
 
@@ -42,9 +43,12 @@ Wave2:
 
 CetriGang:
 EnemyReinforcements(Cetri)
+Cursor(Cetri, 10)
+Text(Cetri_Intro)
+
 
 Cetri:
-	UNIT 0x80 Armor  0x0 Level(1,Enemy,1) [0,11] 0 0 0 0 [SilverLance,LeatherShield] PWHAI
+	UNIT CetriEnemy 0x1f  0x0 Level(1,Enemy,1) [0,11] 0 0 0 0 [SilverAxe,LeatherShield] PWHAI //0x1f - wyvern
 	UNIT
 
 #define GiveGold(money) "CALL $591F40; SVAL 0x3 money; GIVEITEMTOMAIN 0"
@@ -149,7 +153,7 @@ BNE 3 1 0xC
 	LABEL 3
 SVAL 1 Briscoe
 BNE 4 1 0xC
-	TextGiveItem(Text_Ch1_Briscoe_Village, FocusBand, 0xFFFF)
+	TextGiveItem(Text_Ch1_Briscoe_Village, PowerRing, 0xFFFF)
 	GOTO 9
 	LABEL 4
 SVAL 1 Rasmus
@@ -169,7 +173,7 @@ BNE 7 1 0xC
 	LABEL 7
 SVAL 1 Rylen
 BNE 8 1 0xC
-	TextGiveItem(Text_Ch1_Rylan_Village, PowerRing, 0xFFFF)
+	TextGiveItem(Text_Ch1_Rylan_Village, FocusBand, 0xFFFF)
 	LABEL 8
 LABEL 9
 //TILECHANGE 0x00
@@ -264,6 +268,8 @@ SET_HP Rasmus
 ENDA
 
 EndingScene:
+//ORG $1D38388
+ASMC 0x85C65
 REMOVEPORTRAITS
 SetBackground(0x1)
 Text(Text_Ch1_End_1)

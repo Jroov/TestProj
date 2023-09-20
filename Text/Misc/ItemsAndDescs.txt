@@ -29,6 +29,9 @@ Claymore[X]
 #0x35a
 Zweihander[X]
 
+#0x380
+Poleax[X]
+
 #0x3d9
 Hide Shield[X]
 

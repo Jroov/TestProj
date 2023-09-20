@@ -33,7 +33,7 @@
 #define Raza 0x7
 
 //Bosses
-//#define CetriEnemy 0x6A
+#define CetriEnemy 0x6A
 
 //Mugs
 //Player Units

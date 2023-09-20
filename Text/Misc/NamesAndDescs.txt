@@ -1,29 +1,49 @@
-# 0x0212
+#0x0212
 Medrick[X]
 
-# 0x0213
+#0x26e
+[X]
+
+#0x0213
 Rasmus[X]
 
-# 0x0214
+#0x26f
+Advisor to the king of country.[NL]
+Fiercely loyal and protective.[X]
+
+#0x0214
 Briscoe[X]
 
-# 0x0215
+#0x270
+A new recruit in the country army.[NL]
+Overly serious and harsh.[X]
+
+#0x0215
 Halle[X]
 
-# 0x0216
+#0x271
+[X]
+
+#0x0216
 Fran[X]
 
-# 0x219
+#0x272
+[X]
+
+#0x219
 Sarina[X]
 
-# 0x0217
+#0x275
+[X]
+
+#0x0217
 Raza[X]
 
-# 0x0218
+#0x0218
 Kay[X]
 
-# 0x21b
+#0x21b
 Rylen[X]
 
-# 0x024a
+#0x024a
 Cetri[X]
