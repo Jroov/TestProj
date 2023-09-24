@@ -1,5 +1,5 @@
 
-#define GaidenList(character,pointer) "PUSH ; ORG SpellListTable + character * 4 ; POIN pointer ; POP"	
+#define GaidenList(character,pointer) "PUSH ; ORG SpellListTable + character * 4 ; POIN pointer ; POP"
 
 ALIGN 4
 SpellListTable: // Allocate space for the spell list pointer table.

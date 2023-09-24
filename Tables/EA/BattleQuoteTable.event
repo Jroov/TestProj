@@ -14,7 +14,8 @@ UnspecifiedBattleConvo(Fran,Chapter1,0x15,Fran_Ch1_Battle)
 UnspecifiedBattleConvo(Sarina,Chapter1,0x16,Sarina_Ch1_Battle)
 
 //Boss
-//UnspecifiedBattleConvo(0x68,Chapter1,0x1,Boss_Ch1_Battle)
+SpecifiedBattleConvo(0x68,Briscoe,Chapter1,0x17,Ch1_Briscoe_Boss)
+UnspecifiedBattleConvo(0x68,Chapter1,0x1,Boss_Ch1_Battle)
 //UnspecifiedBattleConvo(CetriEnemy,Chapter1,0x16,Cetri_Ch1_Battle)
 
 //Ch2

@@ -26,6 +26,14 @@ StatBonus(0,0,0,0,1,0,0,0,0,0)
 DefPlusOneBoost:
 StatBonus(0,0,0,0,0,1,0,0,0,0)
 
+ALIGN 4
+GlassShieldBoost:
+StatBonus(0,0,0,0,0,6,3,0,0,0)
+
+ALIGN 4
+FocusBandBoost:
+StatBonus(0,(-1),(-2),0,0,0,0,0,0,0)
+
 ResPlusOneBoost:
 StatBonus(0,0,0,0,0,0,1,0,0,0)
 

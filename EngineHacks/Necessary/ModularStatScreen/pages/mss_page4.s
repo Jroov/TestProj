@@ -13,6 +13,6 @@ page_start
 
 @draw_textID_at 1, 1, 0x1, 1 Green
 
-draw_gaiden_spells_at 13, 13, GaidenStatScreen @ GaidenStatScreen is a pointer to the routine, GaidenStatScreen.
+draw_gaiden_spells_at 13, 3, GaidenStatScreen @ GaidenStatScreen is a pointer to the routine, GaidenStatScreen.
 
 page_end

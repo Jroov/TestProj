@@ -15,21 +15,28 @@ POIN BeginningScene EndingScene
 #define Cursor(charID, time) "CURSOR charID; STAL time; REMOVE_CURSORS"
 TurnBasedEvents:
 TurnEventPlayer(0,AIChange,4)
-TurnEventPlayer(0,Reinforcements1, 8)
-TurnEventPlayer(0,Reinforcements2,10)
-TurnEventEnemy(0,CetriGang,9)
+TurnEventPlayer(0,Reinforcements1, 7)
+TurnEventPlayer(0,Reinforcements2,9)
+TurnEventEnemy(0,CetriReinforcement,9)
+TurnEventPlayer(0,Cetri2,10)
 END_MAIN
 
 AIChange:
 SetAI(2,6,0x00,0x00)
 SetAI(2,15,0x00,0x00)
+NoFade
+ENDA
 
 
 Reinforcements1:
 EnemyReinforcements(Wave1)
+NoFade
+ENDA
 
 Reinforcements2:
 EnemyReinforcements(Wave2)
+NoFade
+ENDA
 
 Wave1:
 	UNIT 0x80 Mercenary  0x0 Level(1,Enemy,1) [0,10] 0 0 0 0 [SilverSword,LeatherShield] PWHAI
@@ -41,15 +48,23 @@ Wave2:
 	UNIT 0x80 Archer  0x0 Level(1,Enemy,1) [17,20] 0 0 0 0 [SilverBow,LeatherShield] PWHAI
 	UNIT
 
-CetriGang:
-EnemyReinforcements(Cetri)
-Cursor(Cetri, 10)
-Text(Cetri_Intro)
+CetriReinforcement:
+EnemyReinforcements(CetriUnit)
+SET_ACTIVE 0
+NoFade
+ENDA
 
-
-Cetri:
+CetriUnit:
 	UNIT CetriEnemy 0x1f  0x0 Level(1,Enemy,1) [0,11] 0 0 0 0 [SilverAxe,LeatherShield] PWHAI //0x1f - wyvern
 	UNIT
+
+Cetri2:
+CAMERA CetriEnemy
+Cursor(CetriEnemy, 100)
+Text(Cetri_Intro)
+NoFade
+ENDA
+
 
 #define GiveGold(money) "CALL $591F40; SVAL 0x3 money; GIVEITEMTOMAIN 0"
 #define GiveItem(item, charID) "CALL $591F40; SMOV 0x3 item; GIVEITEMTO charID"
@@ -277,6 +292,11 @@ CALL $9EE2C4
 FADI 16
 MNC2 1
 NoFade
+GiveItem(IronSword, Medrick)
+CHECK_ALIVE Sarina
+BNE 1 1 0xC
+GiveItem(IronLance, Sarina)
+LABEL 1
 ENDA
 
 Escape:

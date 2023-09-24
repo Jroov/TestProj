@@ -10,5 +10,15 @@ Remove this equipment.[X]
 ## EscapeDisplay
 Escape[X]
 
+## RoutToFiveDisplay
+Rout to 5[X]
+
+## RoutToFiveDetail
+Rout every enemy until[NL]
+there are five left.[X]
+
+## Ch1Name
+Ch1: Escape![X]
+
 ## EquipRank
 Equipment mastery level.[X]

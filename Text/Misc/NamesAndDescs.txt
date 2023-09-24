@@ -37,13 +37,23 @@ Sarina[X]
 [X]
 
 #0x0217
-Raza[X]
+Kay[X]
 
 #0x0218
-Kay[X]
+Raza[X]
 
 #0x21b
 Rylen[X]
 
 #0x024a
 Cetri[X]
+
+#0x24d
+Mercenary[X]
+
+#0x2a9
+A mercenary under the hire[NL]
+of badcountry.[X]
+
+#0x24e
+BadGuy[X]

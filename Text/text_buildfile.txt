@@ -135,7 +135,8 @@ a skill when used.[X]
 
 #include "Misc/DeathQuotes.txt"
 
-#include "Misc/Misc.txt"
-
 #include "Misc/fatigue_text.txt"
 
+#include "Misc/Misc.txt"
+
+#include "Misc/BossQuotes.txt"

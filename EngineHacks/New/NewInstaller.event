@@ -3,6 +3,12 @@
 //Vesly + Sentine GroupAI
 #include "GroupAI/Installer.event"
 
+//Sme AW Fog
+#include "AW_Fog/AW_Fog.event"
+
+//Stan Fixed autolevels
+#include "FixedAutoLevels.event"
+
 //Sme/Loog/Pik Fatigue
 #include "Fatigue/Fatigue.event"
 
@@ -32,6 +38,9 @@
 
 //Pik & Loog PCC
 #include "PCC/Installer.event"
+
+//RW Cloud Fix
+#include "RW Cloud Fix/Cloud_Fix_EA.event"
 
 //Sme CharBasedPromo
 #include "CharBasedPromos/CharBasedPromos.event"
@@ -145,6 +154,12 @@ PUSH
 //Remove speed requirement from steal
 ORG 0x25BBE
 SHORT 0x46C0
+POP
+
+//Shuusuke & Vesly Fog/Cloudy fix
+PUSH
+ORG 0x15610
+BYTE 0x1C 0xE0
 POP
 
 ALIGN 4

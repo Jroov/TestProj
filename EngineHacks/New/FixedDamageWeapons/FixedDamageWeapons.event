@@ -4,7 +4,7 @@
 #include "FixedDamageWeapons.lyn.event"
 
 FixedDamageWeaponList:
-//BYTE IronBow
+BYTE LightningSword
 BYTE 0
 
 

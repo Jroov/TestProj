@@ -2,6 +2,7 @@
 #define Broadsword 0x9
 #define ReaverPrf 0x8
 #define ThrownSpear 0x18
+#define LightningSword 0xa
 
 //Items
 #define LeatherShield 0x60
@@ -11,7 +12,7 @@
 #define PowerRing 0x5c
 #define CanterRing 0x5e
 #define FocusBand 0x64
-
+#define GlassShield 0x5b
 
 
 //Classes
